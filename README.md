@@ -1,7 +1,9 @@
 # c-solutions
 My solutions to the exercises in K. N. King's "C Programming: A Modern
 Approach", second edition. 
-<center><img src="cover.gif"/></center>
+<center>
+<img src="cover.gif"/>
+</center>
 
 ## Information
 My solutions aim to be as complete as possible with little ambiguity or
