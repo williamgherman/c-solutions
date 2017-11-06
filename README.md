@@ -2,7 +2,7 @@
 My solutions to the exercises in K. N. King's "C Programming: A Modern
 Approach", second edition. 
 <center>
-<img src="cover.gif"/>
+<img src="cover.jpg"/>
 </center>
 
 ## Information
