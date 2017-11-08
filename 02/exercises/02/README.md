@@ -11,8 +11,7 @@ int main(void)
     return 0;
 }
 ```
-(a) Identify the directives and statements in this program.
-
+(a) Identify the directives and statements in this program.  
 (b) What output does the program produce?
 
 ### Solution
