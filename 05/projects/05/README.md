@@ -1,7 +1,7 @@
 ### Project 5.05
 In one state, single residents are subject to the following income tax:
 
-| Income        | Amount of tax |
+| Income        | Amount of tax |                               |
 | ------------- | ------------- | ----------------------------- |
 | Not over $750 | 1% of income  |
 | $750-$2,250   | $7.50         | plus 2% of amount over $750   |
