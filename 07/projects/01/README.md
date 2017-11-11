@@ -12,5 +12,8 @@ See `1.c`.
 
 Smallest value of `n` that causes failure while `i` is of type  
 `int`: 46341  
-`short`: 182 
+`short`: 182   
 `long`: 3037000500 
+
+Therefore, my machine stores `short` in 16 bits, `int` as 32 bits and `long` in
+64 bits.
