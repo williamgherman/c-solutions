@@ -9,4 +9,4 @@ character. `getchar` won't allow the program to continue until the user pressed
 the Enter key.
 
 ### Solution
-See `2.c`
+See `2.c`.
