@@ -1,6 +1,6 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
+#include <stdlib.h> /* srand(), rand() */
+#include <time.h> /* time() */
 
 int main(void) {
 
@@ -8,8 +8,8 @@ int main(void) {
          grid[10][10] = {0};
     int i = 0,
         j = 0,
-        up = 0,
-        down = 0,
+        up = 0,   /* directions are essentially bools, written as ints to */
+        down = 0, /* conform with C89 standard.                           */
         left = 0,
         right = 0,
         move = 0;
@@ -35,6 +35,8 @@ int main(void) {
 
         move = rand() % 4;
         
+
+        /* Intentional fallthrough if direction fails */
         switch(move) {
             case 0:
                 if (up) {
