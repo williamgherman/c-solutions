@@ -38,5 +38,5 @@ int average (int a, int n) {
 ```
 
 ### TODO:
-[] (c)
-[] (d)
+[ ] (c)  
+[ ] (d)
