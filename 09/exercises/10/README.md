@@ -12,7 +12,7 @@ array.)
 #### (a).
 
 ```c
-int max_in_array (int a, int n) {
+int max_in_array (int a[], int n) {
 
     int i = 1, max = a[0];
     while (i++ < n) {
@@ -26,7 +26,7 @@ int max_in_array (int a, int n) {
 #### (b).
 
 ```c
-int average (int a, int n) {
+int average (int a[], int n) {
 
     int i = 0, average = 0;
 
@@ -37,6 +37,17 @@ int average (int a, int n) {
 }
 ```
 
-### TODO:
-- [ ] (c)  
-- [ ] (d)
+#### (c).
+
+```c
+int positives (int a[], int n) {
+
+    int total, i = 0;
+
+    while (i++ < n) {
+        if (a[n] > 0)
+            total++;
+    }
+
+    return total;
+```
