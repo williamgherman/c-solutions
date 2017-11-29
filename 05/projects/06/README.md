@@ -4,4 +4,4 @@ valid. After the users enters a UPC, the program will display either `VALID` or
 `NOT VALID`.
 
 ### Solution
-See `upc.c`.
+See `6.c`.

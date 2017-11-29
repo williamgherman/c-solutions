@@ -7,4 +7,4 @@ With tax added: $105.00
 ```
 
 ### Solution
-See `tax.c`.
+See `4.c`.

@@ -8,4 +8,4 @@ The sum is 38/24
 ```
 
 ### Solution
-See `addfrac2.c`.
+See `6.c`.

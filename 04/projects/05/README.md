@@ -9,4 +9,4 @@ Check digit: 5
 ```
 
 ### Solution
-See `upc.c`.
+See `5.c`.

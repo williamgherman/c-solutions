@@ -26,4 +26,4 @@ Check digit: 8
 ```
 
 ### Solution
-See `ean.c`.
+See `6.c`.

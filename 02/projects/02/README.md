@@ -5,7 +5,7 @@ writing it as `4/3`. What happens?) Hint: C doesn't have an exponentiation
 operator, so you'll need to multiply r by itself twice to compute r³.
 
 ### Solution
-See `volume.c`.
+See `2.c`.
 
 Writing the fraction in integer form will result in a integer rounding error,
 returning `1`.

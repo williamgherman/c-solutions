@@ -10,4 +10,4 @@ screen:
   *
 ```
 ### Solution
-See `check.c`
+See `1.c`

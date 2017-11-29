@@ -19,4 +19,4 @@ convert the interest rate entered by the user to a percentage and divide it by
 12.
 
 ### Solution
-See `loan.c`.
+See `8.c`.

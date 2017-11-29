@@ -17,4 +17,4 @@ other bill sizes. Be sure to use integer values throughout, not floating-point
 numbers.
 
 ### Solution
-See `change.c`.
+See `7.c`.

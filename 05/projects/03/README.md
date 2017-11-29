@@ -10,4 +10,4 @@ plus 3 cents per share fewer than 2000 shares; $33 plus 2 cents per share for
 charged by the original broker.
 
 ### Solution
-See `broker.c`.
+See `3.c`.
