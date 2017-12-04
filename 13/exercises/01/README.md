@@ -17,4 +17,9 @@ some are incorrect. Identify which calls don't work and explain why.
 
 ### Solution
 
-[ ] TODO
+(b) will not work as `%c` expects a `char` and receives a `string`.  
+(c) will not work as `%s` expects a `string` and receives a `char`.  
+(e) will not work as `printf` expects a `string`.  
+(h) will not work as `putchar` expects a `char`.  
+(i) will not work as `puts` expects a `string`.  
+(j) will write two newline characters.  
