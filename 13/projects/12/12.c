@@ -5,31 +5,32 @@
 
 int main(void) {
 
-    char terminating_char;
+    int i = 0, j = 0;
+    char c;
+    char terminating_char = 0;
     char sentence[MAX_WORDS][MAX_LEN + 1];
 
     printf("Enter a sentence: ");
-    for (i = 0; (c = getchar()) != '\n' && i < MAX_VALUE; i++) {
+    while ((c = getchar()) != '\n' && i < MAX_WORDS) {
+        if (c == ' ' || c == '\t') {
+            sentence[i][j] = '\0';
+            i++;
+            j = 0;
+            continue;
+        }
         if (c == '.' || c == '!' || c == '?') {
             terminating_char = c;
+            sentence[i][j] = '\0';
             break;
         }
-        words[i] = c;
+        else if (j < MAX_LEN)
+            sentence[i][j++] = c;
     }
 
     printf("Reversal of sentence: ");
-    while (i >= 0) {
-        while (words[--i] != ' ' && i != 0)
-            ;
-        j = i == 0 ? 0 : i + 1;
-        while (words[j] != ' ' && words[j] != '\0')
-            putchar(words[j++]);
-        if (i >= 0)
-            putchar(' ');
-    }
-
-    printf("\b%c\n", terminating_char);
+    while (i > 0)
+        printf("%s ", sentence[i--]);
+    printf("%s%c\n", sentence[i], terminating_char);
 
     return 0;
 }
-/* TODO: finish */
