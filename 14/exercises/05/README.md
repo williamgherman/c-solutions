@@ -32,18 +32,18 @@ putchar(TOUPPER(s[++i]));
 ```c
 putchar(TOUPPER(s[++i]));
 putchar(('a'<=(s[++i])&&(s[++i])<='z'?(s[++i])-'a'+'A':(s[++i])))
-putchar(('a'<=(s[1])&&(s[2])<='z'?(s[3])-'a'+'A':(s[4])));
-putchar('C');
+putchar(('a'<=(s[1])&&(s[2])<='z'?(s[++i])-'a'+'A':(s[3])));
+putchar('D');
 ```
-Output: `C`.
+Output: `D`.
 
 #### (b)
 
 ```c
 putchar(TOUPPER(s[++i]));
 putchar(('a'<=(s[++i])&&(s[++i])<='z'?(s[++i])-'a'+'A':(s[++i])))
-putchar(('a'<=(s[1])&&(s[2])<='z'?(s[3])-'a'+'A':(s[4])));
-putchar('\0');
+putchar(('a'<=(s[1])&&(s[++i])<='z'?(s[++i])-'a'+'A':(s[2])));
+putchar('3');
 ```
 
-Output: `'\0'` (null character).
+Output: `'3'`.
