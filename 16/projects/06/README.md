@@ -6,4 +6,4 @@ user is stored in a `date` structure (see Exercise 5). Incorporate the
 
 ### Solution
 
-See 
+See `6.c`. 
