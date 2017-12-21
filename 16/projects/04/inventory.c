@@ -153,7 +153,7 @@ void change_price(struct part inventory[], int num_parts) {
     i = find_part(inventory, num_parts, number);
     if (i >= 0) {
         printf("Enter new price: ");
-        scanf("%f", &inventory[i].price);
+        scanf("%lf", &inventory[i].price);
     } else
         printf("Part not found.\n");
 }

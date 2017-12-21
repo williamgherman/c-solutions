@@ -39,8 +39,9 @@ void push(char i) {
 
 char pop(void) {
 
-    if (is_empty())
+    if (is_empty()) {
         stack_underflow();
-    else
+        return -1;
+    } else
         return contents[--top];
 }

@@ -1,11 +1,14 @@
+CC=gcc
+CFLAGS=-Wall -Wextra -Wpedantic -std=c99
+
 justify: justify.o word.o line.o
-	gcc -o justify justify.o word.o line.o
+	$(CC) -o justify justify.o word.o line.o $(CFLAGS)
 
 justify.o: justify.c word.h line.h
-	gcc -c justify.c
+	$(CC) -c justify.c $(CFLAGS)
 
 word.o: word.c word.h
-	gcc -c word.c
+	$(CC) -c word.c $(CFLAGS)
 
 line.o: line.c line.h
-	gcc -c line.c
+	$(CC) -c line.c $(CFLAGS)

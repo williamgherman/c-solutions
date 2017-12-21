@@ -1,8 +1,11 @@
+CC=gcc
+CFLAGS=-Wall -Wextra -Wpedantic -std=c99
+
 remind: remind.o readline.o
-	gcc -o remind remind.o readline.o
+	$(CC) -o remind remind.o readline.o $(CFLAGS)
 
 remind.o: remind.c readline.h
-	gcc -c remind.c
+	$(CC) -c remind.c $(CFLAGS)
 
 readline.o: readline.c readline.h
-	gcc -c readline.c
+	$(CC) -c readline.c $(CFLAGS)
