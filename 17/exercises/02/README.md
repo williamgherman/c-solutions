@@ -13,4 +13,14 @@ return a null pointer if the memory allocation fails.
 
 ### Solution
 
-TODO
+```c
+char *duplicate(char *str) {
+    char *news = (char *) malloc(strlen(s) + 1);
+    if (news == NULL) {
+        printf("Error: malloc failed\n");
+        return NULL;
+    }
+    strcpy(news, str);
+    return news;
+}
+```
