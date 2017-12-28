@@ -11,4 +11,4 @@ not).
 
 ### Solution
 
-TODO. 
+See `stack.c`.
