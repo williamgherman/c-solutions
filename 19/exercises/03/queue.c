@@ -14,51 +14,51 @@ struct queue_t {
     int items;
 };
 
-void queue_append(Queue, Item i)
+void queue_append(Queue q, Item i)
 {
     if (items < QUEUE_MAX)
     {
-        Queue->contents[Queue->empty_index] = i;
-        empty_index = ((Queue->empty_index + 1) == QUEUE_SIZE) 
-            ? 0 : Queue->empty_index + 1;
-        Queue->items++;
+        q->contents[q->empty_index] = i;
+        empty_index = ((q->empty_index + 1) == QUEUE_SIZE) 
+            ? 0 : q->empty_index + 1;
+        q->items++;
     } else
-        queue_overflow(Queue);
+        queue_overflow(q);
 }
 
-void queue_remove_head(Queue)
+void queue_remove_head(Queue q)
 {
-    if (!queue_is_empty(Queue))
+    if (!queue_is_empty(q))
     {
-        Queue->removal_undex++;
-        Queue->items--;
+        q->removal_undex++;
+        q->items--;
     } else 
-        queue_underflow(Queue);
+        queue_underflow(q);
 }
 
-Item queue_head(Queue)
+Item queue_head(Queue q)
 {
-    if (!queue_is_empty(Queue))
-        return Queue->contents[Queue->removal_index];
+    if (!queue_is_empty(q))
+        return q->contents[q->removal_index];
     else
-        queue_underflow(Queue);
+        queue_underflow(q);
 }
 
-Item queue_last(Queue)
+Item queue_last(Queue q)
 {
-    if (!queue_is_empty(Queue))
+    if (!queue_is_empty(q))
     {
-        if (Queue->empty_index == 0)
-            return Queue->contents[QUEUE_SIZE-1];
+        if (q->empty_index == 0)
+            return q->contents[QUEUE_SIZE-1];
         else
-            return Queue->contents[Queue->empty_index-1];
+            return q->contents[q->empty_index-1];
     } else
-        queue_underflow(Queue);
+        queue_underflow(q);
 }
 
-bool queue_is_empty(Queue)
+bool queue_is_empty(Queue q)
 {
-    return Queue->items == 0;
+    return q->items == 0;
 }
 
 static void queue_underflow(void)
