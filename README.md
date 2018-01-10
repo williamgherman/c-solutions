@@ -14,7 +14,7 @@ solutions will be compiled as directed from the book.
 All testing was done on a x86_64 Linux system running GCC 7.2.0 or greater. The
 compiler has been set to run the C89 or C99 standard unless otherwise noted:
 
-```
+```bash
 $ gcc filename.c -o filename.o -Wall -Wextra -Wpedantic -std=c89
 $ gcc filename.c -o filename.o -Wall -Wextra -Wpedantic -std=c99
 ```
