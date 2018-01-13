@@ -1,4 +1,4 @@
-### Exericse 22.07
+### Exercise 22.07
 
 Suppose that we call `scanf` as follows:
 
@@ -17,6 +17,9 @@ consumed by the call.
 (d) `.1●.2●.3¤`
 
 ### Solution
+
+NB: Ignore all spaces in input streams. Real spaces have been indicated by `●`,
+and the newline characters have been indicated by `¤`.
 
 #### (a)
 
