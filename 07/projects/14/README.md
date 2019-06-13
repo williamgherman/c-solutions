@@ -1,6 +1,6 @@
 ### Project 7.14
 Write a program that uses Newton's method to compute the square root of a
-positive floating-poing number:
+positive floating-point number:
 
 ```
 Enter a positive number: 3
