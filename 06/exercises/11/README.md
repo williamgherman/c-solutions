@@ -13,4 +13,4 @@ printf("%d\n", sum);
 
 ### Solution
 
-`25`
+`20`
