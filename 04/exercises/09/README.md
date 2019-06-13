@@ -21,5 +21,5 @@ Show the output produced by the following program fragments. Assume that `i`,
 
 (a) 63 8  
 (b) 3 2 1  
-(c) 0 -1 3  
+(c) 2 -1 3  
 (d) 0 0 0
