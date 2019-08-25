@@ -13,4 +13,5 @@ switch (i % 3) {
 
 ### Solution
 The program will printf `zeroonetwo` if `i % 3` is 0, `onetwo` if `i % 3` is 1,
-and `two` if `i % 3` is 2, because of the missing `break` statements.
+and `two` if `i % 3` is 2, because of the missing `break` statements. In this
+example, `onetwo` will be printed, since `i % 3` is 1.
