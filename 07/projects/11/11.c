@@ -1,19 +1,26 @@
 #include <stdio.h>
 
 int main(void) {
+  char first_initial;
 
-    char c, initial;
+  printf("Enter a first and last name: ");
+  scanf(" %c", &first_initial);
 
-    printf("Enter a first and last name: ");
-    
-    while ((c = getchar()) == ' ')
-        ;
-    initial = c;
-    while ((c = getchar()) != ' ')
-        ;
-    while ((c = getchar()) != '\n')
-        putchar(c);
-    printf(", %c.\n", initial);
+  char ch;
 
-    return 0;
+  while ((ch = getchar()) != ' ') {
+    ;
+  }
+
+  while ((ch = getchar()) == ' ') {
+    ;
+  }
+
+  do {
+    putchar(ch);
+  } while ((ch = getchar()) != '\n' && ch != ' ');
+
+  printf(", %c.\n", first_initial);
+
+  return 0;
 }
