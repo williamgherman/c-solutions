@@ -17,6 +17,7 @@ int main(void) {
     printf("Enter shift amount (1-25): ");
     scanf("%d", &n);
 
+    printf("Encrypted message: ");
     for (i = 0; i < length; i++) {
         if (sentence[i] >= 'A' && sentence[i] <= 'Z')
             sentence[i] = ((sentence[i] - 'A') + n) % 26 + 'A';
