@@ -7,10 +7,10 @@ int main(void) {
     int digit, i, occurrences[10] = {0};
     long n;
 
-    printf("Enter a number: ");
-    scanf("%ld", &n);
+    do {        
+        printf("Enter a number: ");
+        scanf("%ld", &n);
 
-    while (n > 0) {        
         while (n > 0) {
             digit = n % 10;
             occurrences[digit]++;
@@ -22,10 +22,11 @@ int main(void) {
 
         for (i = 0; i < 10; i++) {
             printf("%2d ", occurrences[i]);
+            n += occurrences[i];
             occurrences[i] = 0;
         }
-        printf("\nEnter a number: ");
-        scanf("%ld", &n);
-    }
+
+        putchar('\n');
+    } while (n > 0);
     return 0;
 }
