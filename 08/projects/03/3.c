@@ -10,7 +10,12 @@ int main(void) {
     printf("Enter a number: ");
     scanf("%ld", &n);
 
-    do {        
+    if (n <= 0) {
+        printf("Digit:\t\t 0  1  2  3  4  5  6  7  8  9\n");
+        printf("Occurrences:\t 0  0  0  0  0  0  0  0  0  0\n");
+    }
+
+    while (n > 0) {        
         while (n > 0) {
             digit = n % 10;
             occurrences[digit]++;
@@ -26,6 +31,6 @@ int main(void) {
         }
         printf("\nEnter a number: ");
         scanf("%ld", &n);
-    } while (n > 0);
+    }
     return 0;
 }
