@@ -25,6 +25,6 @@ int main(void)
     return 0;
 }
 ```
-The only spaces which are necessary are the linebreak in the `#include`
+The only spaces which are necessary are the line break in the `#include`
 directive and its space between `#include` and `<stdio.h>` as well as the space
 between `return` and `0`.

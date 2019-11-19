@@ -12,7 +12,7 @@ $10 bills: 1
 ```
 
 *Hint*: Divide the amount by 20 to determine the number of $20 bills needed, and
-then reduce the amount by the totoal value of the $20 bills. Repeat for the
+then reduce the amount by the total value of the $20 bills. Repeat for the
 other bill sizes. Be sure to use integer values throughout, not floating-point
 numbers.
 
