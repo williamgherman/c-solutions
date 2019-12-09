@@ -8,10 +8,11 @@ indicates how many digits *n* originally had.
 
 ```c
 int num_digits(int n) {
-
-    int i;
-    while (n / 10 != 0)
+    int i = 0;
+    while (n > 0) {
+        n /= 10;
         i++;
+    }
     return i;
 }
 ```
