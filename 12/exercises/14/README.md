@@ -12,5 +12,5 @@ entire `temperatures` array for the value 32.
 ### Solution
 
 ```c
-bool has32 = search(temperatures, 7 * 24, 32);
+bool has32 = search(temperatures[0], 7 * 24, 32);
 ```
