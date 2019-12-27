@@ -15,7 +15,7 @@ subscripting -- to visit array elements.
 ```c
 bool search(const int a[], int n, int key) {
 
-    int *p;
+    const int *p;
 
     for (p = a; p < a + n; p++) {
         if (*p == key)
