@@ -8,7 +8,7 @@ int main(void)
 {
   unsigned char my_array[10];
 
-  unsigned long n;
+  long n;
 
   long b;
 
