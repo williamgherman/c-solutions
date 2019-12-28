@@ -11,7 +11,7 @@ int evaluate_position(char board[8][8]) {
     char *p;
     int white = 0, black = 0;
 
-    for (p = board; p < board + 64; p++) {
+    for (p = board[0]; p < board[0] + 64; p++) {
 
         switch(*p) {
             case 'Q':
