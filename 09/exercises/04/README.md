@@ -4,31 +4,20 @@ year (an integer between 1 and 366) specified by the three arguments.
 
 ### Solution
 
-int day_of_year(int month, int day, int year) 
-{
-if((day<=0 || day>31) || (month<=0 || month>12) || !year) return 0;
+int day_of_year(int month, int day, int year) {
+if(day<=0 || day>31 || month<=0 || month>12 || !year || (month==2 && day>29) \
+   || (!(year%400) || !(year%4) && year%100) && day>29) return 0;
 
-bool leap_year=false;
+unsigned int sum=0;
 
-if(!(year%400)) leap_year=true;
-else if(!(year%100)) leap_year=false;
-else if(!(year%4)) leap_year=true;
-
-int month_array[12];
-
-for(unsigned char i=1;i<=12;i++){
-if(i==1 || i==3 || i==5 || i==7 || i==8 || i==10 || i==12) month_array[i-1]=31;
-else if (i==2) {
-    if(leap_year) month_array[i-1]=29;
-    else month_array[i-1]=28;
-}
-else month_array[i-1]=30;
-}
-
-unsigned char sum=0;
 for(unsigned char i=1;i<month;i++){
-   sum+=month_array[i-1];
-   printf("%d\n",sum);
+    if(i==1 || i==3 || i==5 || i==7 || i==8 || i==10 || i==12) sum+=31;
+    else if(i==2){
+        if(!(year%400) || (!(year%4)) && (year%100)) sum+=29;
+        else sum+=28;
+    }
+    else sum+=30;
 }
-    return sum+=day;
+    return sum+day;
 }
+
