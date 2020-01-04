@@ -4,7 +4,8 @@ year (an integer between 1 and 366) specified by the three arguments.
 
 ### Solution
 
-int day_of_year(int month, int day, int year) {
+int day_of_year(int month, int day, int year) 
+{
 if((day<=0 || day>31) || (month<=0 || month>12) || !year) return 0;
 
 bool leap_year=false;
