@@ -7,12 +7,23 @@ the number of digits in `n`, have the function return 0.
 ### Solution
 
 ```c
-int digit(int n, int k) {
+unsigned int digit(unsigned int n, unsigned int k){
+    unsigned int n_copy=n;
+    unsigned int counter=0;
 
-    while (k-- > 1) {
-        if (n /= 10 <= 0)
-            return 0;
-    }
-    return n % 10;
+while(n_copy) {
+n_copy/=10;
+counter++;
 }
-```
+
+if(k>counter) return 0;
+
+int my_array[counter];
+
+for(unsigned char i=0;i<k;i++){
+    n_copy=n%10;
+    my_array[i]=n_copy;
+    n/=10;
+if(i==k-1) return my_array[i];
+}
+}
