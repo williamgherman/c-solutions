@@ -1,3 +1,34 @@
+//Solution a)
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h> 
+#include <strings.h>
+
+
+int main(void) {
+
+printf("enter a message: ");
+
+char array[100];
+memset(array,'\0',sizeof(array));
+
+char counter=0;
+
+while(((array[counter]=getchar())!='\n') && counter++<100);
+
+printf("Reversal is: ")
+for(unsigned char i=strlen(array);i--;) putchar(array[i]);
+
+
+    return 0;
+
+}
+
+//////
+
+
+
+
 #include <stdio.h>
 
 #define MAX_LEN 100
