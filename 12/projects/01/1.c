@@ -3,18 +3,18 @@
 #include <stdlib.h>
 #include <ctype.h> 
 #include <strings.h>
-
+#define array_size 100
 
 int main(void) {
 
 printf("enter a message: ");
 
-char array[100];
+char array[array_size];
 memset(array,'\0',sizeof(array));
 
 char counter=0;
 
-while(((array[counter]=getchar())!='\n') && counter++<100);
+while(((array[counter]=getchar())!='\n') && counter++<array_size);
 
 printf("Reversal is: ")
 for(unsigned char i=strlen(array);i--;) putchar(array[i]);
@@ -27,29 +27,30 @@ for(unsigned char i=strlen(array);i--;) putchar(array[i]);
 //////
 
 
-
+//Solution b)
 
 #include <stdio.h>
-
-#define MAX_LEN 100
+#include <stdlib.h>
+#include <ctype.h>
+#include <strings.h>
+#define array_size 100
 
 int main(void) {
-    
-    char message[MAX_LEN];
-    char c, *p = message;
 
-    printf("Enter a message: ");
+printf("enter a message: ");
 
-    while ((c = getchar()) != '\n' && p < message + MAX_LEN)
-        *p++ = c;
+char array[array_size];
+memset(array,'\0',sizeof(array));
 
-    p--;
-    printf("Reversal is: ");
+char *p=&array[0];
 
-    while (p >= message)
-        putchar(*p--);
+while(((*p=getchar())!='\n') && p++<array+array_size);
 
-    printf("\n");
+printf("Reversal is: ");
+for(--p;p>&array[0];) putchar(*p--);
+
 
     return 0;
-}    
+
+}
+
