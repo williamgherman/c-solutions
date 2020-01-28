@@ -1,47 +1,35 @@
+#include <stdbool.h>   /* C99 only */
 #include <stdio.h>
 #include <string.h>
+#define WORD_SIZE 20
+int main(void)
+{
+    char smallest_word[WORD_SIZE];
+    memset(smallest_word,255,sizeof(smallest_word));
+    char largest_word[WORD_SIZE];
+    memset(largest_word,'\0',sizeof(largest_word));
 
-#define WORDLEN 20
+while(1){
+    printf("enter a word:");
+    char i=0;
+    char my_array[WORD_SIZE];
+    while((my_array[i++]=getchar())!='\n');
+    my_array[--i]='\0';
 
-char smallest_word[WORDLEN + 1],
-         largest_word[WORDLEN + 1],
-         word[WORDLEN + 1];
+    if(strlen(my_array)==4) break;
 
-void get_first_word(void);
-void get_another_word(void);
-void get_word(void);
+    if(strcmp(my_array,smallest_word)<0) strcpy(smallest_word,my_array);
 
-int main(void) {
-
-    get_first_word();
-
-    while (strlen(word) != 4)
-        get_another_word();
-
-    printf("\nSmallest word: %s\nLargest word: %s\n", 
-           smallest_word, largest_word);
-    
-    return 0;
+    if(strcmp(my_array,largest_word)>0)  strcpy(largest_word,my_array);
 }
 
-void get_first_word(void) {
+printf("smallest word=%s\n",smallest_word);
+printf("largest word=%s\n",largest_word);
 
-    get_word();
-    strcpy(smallest_word, word);
-    strcpy(largest_word, word);
+  return 0;
+
 }
 
-void get_word(void) {
 
-    printf("Enter word: ");
-    scanf("%20s", word);
-}
+//
 
-void get_another_word(void) {
-
-    get_word();
-    if (strcmp(word, smallest_word) < 0)
-        strcpy(smallest_word, word);
-    else if (strcmp(word, largest_word) > 0)
-        strcpy(largest_word, word);
-}
