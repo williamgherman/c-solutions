@@ -34,7 +34,7 @@ strcpy(pl,planets[j]);
            for(char *b=tmp;b<tmp+strlen(tmp);b++)*b=toupper(*b);
 
 for(char *b=pl;b<pl+strlen(pl);b++)*b=toupper(*b);
-printf("%s %s\n",tmp,pl);
+
             if (!strcmp(tmp, pl)) {
 
                 printf("%s is planet %d\n", argv[i], j + 1);
