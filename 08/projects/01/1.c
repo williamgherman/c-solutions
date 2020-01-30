@@ -1,32 +1,31 @@
-/* Checks numbers for repeated digits */
-
-#include <stdbool.h>      /* C99 only */
 #include <stdio.h>
+//#include <stdbool.h>
 
 int main(void) {
+	int digit_seen[10]={0};
+	int digits,i;
+	long n;
 
-    bool digit_seen[10] = {false}, 
-         repeated[10] = {false};
-    int digit, i;
-    long n;
+	printf("enter a number: ");
+	fflush(stdout);
+	scanf(" %ld",&n);
+	while(n>0){
+		digits=n%10;
+		digit_seen[digits]++;
+		n /= 10;
+	}
+	for( i=0;i<10;i++){
+		if(digit_seen[i]>=2) {
+			break;
+		}
+	}
+	if(i<10)printf("Repeated digit(s):");
+	else printf("No repeated digit\n");
+	for(int j=0;j<10;j++){
+		if(digit_seen[j]>=2) printf(" %d",j);
+	}
 
-    printf("Enter a number: ");
-    scanf("%ld", &n);
 
-    while (n > 0) {
-        digit = n % 10;
-        if (digit_seen[digit])
-            repeated[digit] = true;
-        digit_seen[digit] = true;
-        n /= 10;
-    }
-    
-    printf("Repeated digit(s): ");
 
-    for (i = 0; i < 10; i++) {
-        if (repeated[i])
-            printf("%d ", i);
-    }
-    printf("\n");
-    return 0;
+	return 0;
 }
