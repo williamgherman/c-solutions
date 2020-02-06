@@ -16,12 +16,6 @@ minutes (0-59) and seconds (0-59).
 ```c
 struct time split_time(long total_seconds) {
 
-    struct time t;
-    t.hours = total_seconds / 3600;
-    total_seconds %= 3600;
-    t.minutes = total_seconds / 60;
-    total_seconds %= 60;
-    t.seconds = total_seconds;
-    return t;
+    return (struct time){total_seconds/3600,(total_seconds%3600)/60,(total_seconds%3600)%60};
 }
 ```
