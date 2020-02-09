@@ -44,6 +44,10 @@ bool play_game(void) {
         printf("You win!\n\n");
         return true;
     }
+    if (dice == 2 || dice == 3 || dice == 12) {
+        printf("You lose!\n\n");
+        return false;
+    }
     
     printf("Your point is %d\n", point = dice);
 
