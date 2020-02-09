@@ -11,12 +11,12 @@ stored; when the count reaches `N`, it's time to store 1.
 ### Solution
 
 ```c
-void init_ident(double ident[n][n], int n) {
+void init_ident(int n, double ident[n][n]) {
 
-    double *p = ident;
+    double *p = ident[0];
     int zeros = n;
 
-    while (p++ < ident + n * n) {
+    while (p++ < ident[0] + n * n) {
         if (zeros = n) {
             *p = 1;
             zeros = 0;
