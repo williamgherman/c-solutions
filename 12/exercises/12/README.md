@@ -15,7 +15,7 @@ subscripting -- to visit array elements.
 ```c
 void find_two_largest(const int *a, int n, int *largest, int *second_largest) {
 
-    int *p = a;
+    const int *p = a;
     *largest = *second_largest = *a;
     
     while (p++ < a + n) {
