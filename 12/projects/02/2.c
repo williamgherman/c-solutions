@@ -10,13 +10,12 @@ int main(void) {
 
     printf("Enter a message: ");
 
-    while ((c = toupper(getchar())) != '\n' & p < message + MAX_LEN) {
+    while ((c = toupper(getchar())) != '\n' && p < message + MAX_LEN) {
         if (isalpha(c))
             *p++ = c;
     }
-    p--;
 
-    for (q = message; q < p; q++, p--) {
+    for (q = message, p--; q < p; q++, p--) {
         if (*p != *q) {
             printf("Not a palindrome\n");
             return 0;
