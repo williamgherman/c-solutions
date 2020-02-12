@@ -12,11 +12,10 @@ int main(void) {
     while ((c = getchar()) != '\n' && p < message + MAX_LEN)
         *p++ = c;
 
-    p--;
     printf("Reversal is: ");
 
     while (p >= message)
-        putchar(*p--);
+        putchar(*--p);
 
     printf("\n");
 
