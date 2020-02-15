@@ -8,18 +8,59 @@ whether or not a character is whitespace, call the `isspace` function.
 character in the string.  
 (d) Have it leave behind characters that it doesn't have room to store.
 
-### Solution
-
+### Solutions
+(a)
 ```c
 int read_line(char str[], int n) {
     int ch, i = 0;
 
-    while (isspace(getchar()))                                /* (a) */
+    while (isspace((ch = getchar())) && ch != '\n')
         ; 
-    while (i < n && (ch = getchar()) != '\n' && !isspace(ch)) /* (b) & (d) */
+    while (ch != '\n') {
+        if (i < n)
+            str[i++] = ch;
+        ch = getchar();
+    }
+    str[i] = '\0';
+    return i;
+}
+```
+
+(b)
+```c
+int read_line(char str[], int n) {
+    int ch, i = 0;
+
+    while (!isspace((ch = getchar())))
+        if (i < n)
+            str[i++] = ch;
+    str[i] = '\0';
+    return i;
+}
+```
+
+(c)
+```c
+int read_line(char str[], int n) {
+    int ch, i = 0;
+
+    do {
+        ch = getchar();
+        if (i < n)
+            str[i++] = ch;
+    } while (ch != '\n');
+    str[i] = '\0';
+    return i;
+}
+```
+
+(d)
+```c
+int read_line(char str[], int n) {
+    int ch, i = 0;
+
+    while (i < n && (ch = getchar()) != '\n')
         str[i++] = ch;
-    if (ch == '\n' && i < n - 1)                              /* (c) */
-        str[i++] = '\n';
     str[i] = '\0';
     return i;
 }
