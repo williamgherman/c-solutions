@@ -21,9 +21,11 @@ p->upper_left = {10, 25};
 p->lower_right = {20, 15};
 ```
 //working version without compiler warnings.
+```c
 if((p=malloc(sizeof(struct rectangle)))==NULL) exit(EXIT_FAILURE);
 
 p->upper_left.x=10;
 p->upper_left.y=25;
 p->lower_right.x=20;
 p->lower_right.y=15;
+```
