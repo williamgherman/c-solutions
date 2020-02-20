@@ -13,5 +13,4 @@ char *duplicate(const char *p)
 ```
 
 ### Solution
-The string `q` points to will not be accessible outside the scope of the
-function.
+The value of `q` is undefined, so the call of `strcpy` attempts to copy the string pointed to by `p` into some unknown area of memory.
