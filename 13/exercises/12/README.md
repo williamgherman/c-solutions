@@ -17,17 +17,14 @@ by having it use the `strlen` and `strcpy` functions.
 
 ```c
 void get_extension(const char *file_name, char *extension) {
+    const char *ptr = file_name + strlen(file_name);
 
-    while (*file_name) {
-        if (*file_name++ == '.') {
-            strcpy(extension, file_name);
-            return;
-        }
-    }
-    strcpy(extension, "");
+    while (ptr >= file_name && *ptr != '.')
+        ptr--;
+
+    if (*ptr == '.')
+        strcpy(extension, ptr + 1);
+    else
+        strcpy(extension, "");
 }
 ```
-
-NB: Some problems would arise by using this function: for instance, a filename
-with the value `"memo.txt.html"` would incorrectly copy `"txt.html"` to
-`extension`.
