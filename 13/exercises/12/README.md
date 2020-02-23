@@ -19,12 +19,13 @@ by having it use the `strlen` and `strcpy` functions.
 void get_extension(const char *file_name, char *extension) {
     const char *ptr = file_name + strlen(file_name);
 
-    while (ptr >= file_name && *ptr != '.')
+    while (ptr >= file_name) {
+        if (*ptr == '.') {
+            strcpy(extension, ptr + 1);
+            return;
+        }
         ptr--;
-
-    if (*ptr == '.')
-        strcpy(extension, ptr + 1);
-    else
-        strcpy(extension, "");
+    }
+    strcpy(extension, "");
 }
 ```
