@@ -18,7 +18,7 @@ as simple as possible by having it use the `strcat` and `strcpy` functions.
 ```c
 void build_index_url(const char *domain, char *index_url) {
 
-    strcpy(index_url, "http:////www.");
-    strcat(strcat(index_url, domain), "//index.html");
+    strcpy(index_url, "http://www.");
+    strcat(strcat(index_url, domain), "/index.html");
 }
 ```
