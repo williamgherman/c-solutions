@@ -11,7 +11,7 @@ intensities.
 //#define GET_GREEN(x) ((x) >> 8 & 0xff)
 //#define GET_BLUE(x) ((x) >> 16 & 0xff)
 ```
-
+```
 #define MK_COLOR(r,g,b) ((long) (b) << 16 | (g) << 8 | (r))
 #define GET_RED(x) ((unsigned char)(x))
 #define GET_GREEN(x) ((unsigned char) ((x)>>8))
@@ -28,3 +28,4 @@ int main(void){
     printf("%d %d %d",GET_RED(my_color),GET_GREEN(my_color),GET_BLUE(my_color));
 return 0;
 }
+```
