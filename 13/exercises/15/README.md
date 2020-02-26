@@ -21,10 +21,10 @@ int f(char *s, char *t)
 
 ### Solution
 #### (a)
-`f("abcd", "babc")` returns `0`.
+`f("abcd", "babc")` returns `3`.
 
 #### (b)
-`f("abcd", "bcd")` returns `1`.
+`f("abcd", "bcd")` returns `0`.
 
 #### (c)
-`f` returns the first character in `s` which has a matching character in `t`.
+`f` returns the position of the first character in `s` which doesn't have a matching character in `t`.
