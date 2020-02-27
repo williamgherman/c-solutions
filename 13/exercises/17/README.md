@@ -17,19 +17,20 @@ function to convert characters to upper-case before comparing them.
 
 ```c
 bool test_extension(const char *file_name, const char *extension) {
-    const char *ptr = file_name + strlen(file_name);
+    const char *ptr = NULL;
 
-    while (ptr >= file_name) {
-        if (*ptr == '.') {
-            ptr++;
-            break;
-        }
-        ptr--;
+    while (*file_name) {
+        if (*file_name++ == '.')
+            ptr = file_name;
     }
+
+    if (ptr == NULL)
+        return false;
 
     while (*ptr && *extension)
         if (toupper(*ptr++) != toupper(*extension++))
             return false;
+
     return *ptr == *extension;
 }
 ```
