@@ -1,30 +1,31 @@
 #include <stdio.h>
-#include <stdlib.h> /* exit */
+#include <stdlib.h>
+#include <ctype.h>
+#include <strings.h>
 
 int main(int argc, char *argv[])
 {
-    FILE *fp;
-    int i;
-    char c;
+  if(argc<2){
+    fprintf(stderr,"Too few arguments provided");
+    exit(EXIT_FAILURE);
+  }
 
-    if (argc < 2)
-    {
-        fprintf(stderr, "USAGE: fcat filename filename2 ...\n");
-        exit(EXIT_FAILURE);
-    }
-    
-    for (i = 1; i < argc; i++)
-    {
-        if ((fp = fopen(argv[i], "r")) == NULL)
-        {
-            fprintf(stderr, "Error: file %s cannot be opened\n", argv[i]);
-            exit(EXIT_FAILURE);
-        } else {
-            while ((c = getc(fp)) != EOF)
-                putchar(c);
-            fclose(fp);
-        }
-    }
+  FILE *file;
 
-    exit(EXIT_SUCCESS);
+unsigned char file_counter=0;
+
+  while(file_counter<argc){
+    if(!(file=fopen(argv[file_counter],"r"))) {
+        fprintf(stderr,"cant open %s\n",argv[file_counter]);
+       fclose(file);
+    }
+    else {
+    char ch;
+    while((ch=getc(file))!=EOF) putchar(ch);
+    putchar('\n');
+    fclose(file);
+  }
+  file_counter++;
+  }
+ return 0;
 }
