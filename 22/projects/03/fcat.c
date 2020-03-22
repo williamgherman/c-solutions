@@ -12,11 +12,12 @@ int main(int argc, char *argv[])
 
   FILE *file;
 
-unsigned char file_counter=0;
+unsigned char file_counter=1;
 
   while(file_counter<argc){
     if(!(file=fopen(argv[file_counter],"r"))) {
-        fprintf(stderr,"cant open %s\n",argv[file_counter]);
+        if(file_counter+1==argc)fprintf(stderr,"cant open %s\n",argv[file_counter]);
+        else fprintf(stderr,"cant open %s proceeding to %s",argv[file_counter],argv[file_counter+1]);
        fclose(file);
     }
     else {
