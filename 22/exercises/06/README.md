@@ -20,6 +20,6 @@ otherwise, where *n* is the value of `widget`. You are not allowed to use the
 printf("%d widget%s", widget, widget != 1 ? "s\n" : "\n");
 ```
 ###Another Solution
-'''
+```
 printf(widgets==1?"1 widgets":"%d widgets",widgets);
-'''
+```
