@@ -35,7 +35,7 @@ int main(int argc, char * argv[])
         fprintf(stderr,"cant open %s",argv[2]);
         exit(EXIT_FAILURE);
     }
-  int orig_char;
+  char orig_char;
 
   while ((orig_char = getc(input)) != EOF) putc(orig_char^=KEY,output);
   
