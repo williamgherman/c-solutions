@@ -10,43 +10,38 @@
 /* xor.c (Chapter 20, page 515) */
 /* Performs XOR encryption */
 
+#include <ctype.h>
 #include <stdio.h>
-#include <stdlib.h> /* exit */
+#include <stdlib.h>
 
 #define KEY '&'
 
-int main(int argc, char *argv[])
+int main(int argc, char * argv[])
 {
-    FILE *fpin, *fpout;
-    int orig_char, new_char;
-
-    if (argc != 3)
-    {
-        fprintf(stderr, "USAGE: xor input_filename output_filename\n");
+    if(argc<3){
+        fprintf(stderr,"too few arguments");
         exit(EXIT_FAILURE);
     }
 
-    if ((fpin = fopen(argv[1], "rb")) == NULL)
-    {
-        fprintf(stderr, "Error: %s cannot be opened\n", argv[1]);
+    FILE *input;
+    FILE *output;
+
+    if(!(input=fopen(argv[1],"rb"))) {
+            fprintf(stderr,"cant open %s",argv[1]);
+    exit(EXIT_FAILURE);
+    }
+
+    if(!(output=fopen(argv[2],"wb"))){
+        fprintf(stderr,"cant open %s",argv[2]);
         exit(EXIT_FAILURE);
     }
+  int orig_char;
 
-    if ((fpout = fopen(argv[2], "wb")) == NULL)
-    {
-        fprintf(stderr, "Error: %s cannot be created\n", argv[2]);
-        exit(EXIT_FAILURE);
-    }
+  while ((orig_char = getc(input)) != EOF) {
+    putc(orig_char^=KEY,output);
+  }
+  fclose(input);
+  fclose(output);
 
-    while ((orig_char = getc(fpin)) != EOF)
-    {
-        new_char = orig_char ^ KEY;
-        putc(new_char, fpout);
-    }
-
-    fclose(fpin);
-    fclose(fpout);
-    exit(EXIT_SUCCESS);
-
-    return 0;
+  return 0;
 }
