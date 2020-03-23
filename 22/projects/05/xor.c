@@ -37,9 +37,8 @@ int main(int argc, char * argv[])
     }
   int orig_char;
 
-  while ((orig_char = getc(input)) != EOF) {
-    putc(orig_char^=KEY,output);
-  }
+  while ((orig_char = getc(input)) != EOF) putc(orig_char^=KEY,output);
+  
   fclose(input);
   fclose(output);
 
