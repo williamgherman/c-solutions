@@ -23,12 +23,13 @@ bool is_identifier(char *s)
 ```
 ### my version
 ```
- bool syntax(char *a){
+bool syntax(char *a){
 
     if(!isalpha(*a) && *a!='_') return false;
 
-    for(unsigned char i=0;i<strlen(a) && !isalpha(*a) && *a!='_';i++) if(!isalnum(a[i]) && a[i]!='_') return false;
+    for(unsigned char i=0;i<strlen(a);i++) if(!isalnum(a[i]) && a[i]!='_') return false;
 
     return true;
+}
 }
 ```
