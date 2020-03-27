@@ -31,5 +31,4 @@ bool syntax(char *a){
 
     return true;
 }
-}
 ```
