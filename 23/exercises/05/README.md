@@ -35,6 +35,7 @@ return strtol(a,NULL,16);
 ```
 
 ### Solution 2
+```
 long is_hex(char *p){
 if(strlen(a)>255) for(unsigned int i=0;p[i];i++) if(!isxdigit(p[i])) return -1;
 else for(unsigned char i=0;p[i];i++) if(!isxdigit(p[i])) return -1;
