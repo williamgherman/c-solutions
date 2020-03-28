@@ -25,6 +25,4 @@ while(fgets(input,sizeof(input),file)) {
 
 }
 
-   return(0);
-}
-
+   return(0);}
