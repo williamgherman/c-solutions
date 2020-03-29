@@ -11,7 +11,7 @@ char c;
 
 while((c=getchar())!=EOF){
         if(isspace(c)) continue;
-else putchar(c);
+        putchar(c);
 }
 
    return(0);
