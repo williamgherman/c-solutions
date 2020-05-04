@@ -13,32 +13,31 @@ and `F` = 0).
 ### Solution
 
 ```c
-#include <ctype.h>
+float compute_GPA(char grades[], int n){
+unsigned long sum=0;
 
-float compute_GPA(char grades[], int n) {
+for(unsigned char i=0;i<n;i++){
+    switch(toupper(grades[i])){
+case 'A':
+    sum+=4;
+    break;
 
-    float total = 0.0F;
-    int i;
+case 'B':
+    sum+=3;
+    break;
 
-    for (i = 0; i < n; i++) {
-        switch(toupper(grades[i])) {
-            case 'A':
-                total += 4.0F;
-                break;
-            case 'B':
-                total += 3.0F;
-                break;
-            case 'C':
-                total += 2.0F;
-                break;
-            case 'D':
-                total += 1.0F;
-                break;
-            case 'F':
-            default:
-                break;
-        }
+case 'C':
+    sum+=2;
+    break;
+
+case 'D':
+    sum+=1;
+    break;
+
+default:
+    break;
+
     }
-    return total / n;
 }
-```
+return (float)sum/n;
+}

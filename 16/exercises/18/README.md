@@ -36,11 +36,17 @@ typedef struct { Piece; Color; } Square;
 ```c
 Square[8][8] board;
 ```
+//bugfix
+Square board[8][8];
 
 #### (d)
 
 ```c
-Square[8][8] board = {
+Square[8][8] board = 
+//bugfix
+
+
+Square board[8][8]={
     {{ROOK,  WHITE}, {KNIGHT, WHITE}, {BISHOP, WHITE}, {QUEEN, WHITE},
      {KING,  WHITE}, {BISHOP, WHITE}, {KNIGHT, WHITE}, {ROOK,  WHITE}},
     {{PAWN,  WHITE}, {PAWN,   WHITE}, {PAWN,   WHITE}, {PAWN,  WHITE},

@@ -1,106 +1,101 @@
 #include <stdio.h>
-#include <stdlib.h>  /* exit */
-#include <ctype.h>   /* isdigit */
+#include <stdlib.h> /* exit */
 #include <stdbool.h> /* C99+ only */
-
 #define STACK_SIZE 100
+#include <ctype.h>
+#include <string.h>
 
-/* external variables */
-char contents[STACK_SIZE] = {0};
+char contents[STACK_SIZE];
 int top = 0;
 
 void make_empty(void);
+
 bool is_empty(void);
+
 bool is_full(void);
-void push(char i);
+
+void push(int i);
+
 char pop(void);
+
 void stack_overflow(void);
+
 void stack_underflow(void);
+
 int evaluate_RPN_expression(const char *expression);
 
 int main(void) {
+while(1){
 
-    char c, expr[STACK_SIZE], *p;
+        printf("enter an expression: ");
 
-    while(true) {
+char ch=0;
+char array[50];
 
-        p = expr;
-        printf("Enter an RPN expression: ");
-        while ((c = getchar()) != '\n' && p < expr + STACK_SIZE)
-            *p++ = c;
-        
-        printf("Result of expression: %d\n", evaluate_RPN_expression(expr));
-        p = expr;
-        while (*p)
-            *p++ = '\0';
+while((array[ch++]=getchar())!='\n' && ch<50);
 
-    }
-    exit(EXIT_SUCCESS);
-}
+array[--ch]='\0';
 
-int evaluate_RPN_expression(const char *expression) {
-    char op1, op2;
-    while (*expression) {
-        if (isdigit(*expression))
-            push(*expression - '0');
-        else
-            switch(*expression) {
-                case '+': push(pop() + pop());
-                          break;
-                case '-': op2 = pop();
-                          op1 = pop();
-                          push(op1 - op2);
-                          break;
-                case '*': push(pop() * pop());
-                          break;
-                case '/': op2 = pop();
-                          op1 = pop();
-                          push(op1 / op2);
-                          break;
-                case '=': return pop();
-                          break;
-                case ' ': break;
-                default:  exit(EXIT_FAILURE);
-            }
-        expression++;
-    }
-    exit(EXIT_FAILURE);
-}
-
+printf("%d",evaluate_RPN_expression(array));
+    return 0;
+}}
 void make_empty(void) {
     top = 0;
 }
-
 bool is_empty(void) {
     return top == 0;
 }
-
 bool is_full(void) {
     return top == STACK_SIZE;
 }
-
-void push(char i) {
-
+void push(int i) {
     if (is_full())
         stack_overflow();
     else
         contents[top++] = i;
 }
-
 char pop(void) {
-
     if (is_empty())
         stack_underflow();
     else
         return contents[--top];
 }
-
 void stack_overflow(void) {
     printf("\nExpression is too complex\n");
     exit(EXIT_FAILURE);
 }
-
 void stack_underflow(void) {
     printf("\nNot enough operands in expression\n");
     exit(EXIT_FAILURE);
 }
+int evaluate_RPN_expression(const char *expression){
+    for(char *p=expression;p<=expression+strlen(expression);p++){
+      if(isdigit(*p)) {
+            push(*p-48);
+      }
+      else if(*p=='*') {
+            int a=pop();
+      int b=pop();
+      push(a*b);
+}
+        else if(*p=='+'){
+            int a=pop();
+      int b=pop();
+      push(a+b);
+        }
+        else if(*p=='-'){
+            int a=pop();
+      int b=pop();
+      push(b-a);
+        }
+        else if(*p=='/'){
+            int a=pop();
+      int b=pop();
+      push(b/a);
+        }
+        else if(*p=='='){
+            return pop();
+        }
+    }
+    return -1;
+              }

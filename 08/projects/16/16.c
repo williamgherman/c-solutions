@@ -1,34 +1,40 @@
+#include <stdbool.h>   /* C99 only */
 #include <stdio.h>
-#include <ctype.h> /* toupper, isalpha */
+#include <ctype.h>
 
-int main(void) {
+#define size 26
 
-    int i,
-        same = 1,
-        letters[26] = {0};
-    char c;
+int main(void)
 
-    printf("Enter first word: ");
-    while ((c = getchar()) != '\n') {
-        if (isalpha(c))
-            letters[toupper(c) - 'A']++;
-    }
-    printf("Enter second word: ");
-    while ((c = getchar()) != '\n') {
-        if (isalpha(c))
-            letters[toupper(c) - 'A']--;
-    }
+{
+    printf("Enter first words: ");
 
-    for (i = 0; i < 26; i++) {
-        if (letters[i] != 0) {
-            same = 0;
-            break;
-        }
+    int array[size];
+
+    for(unsigned char i=0;i<size;array[i++]=0);
+
+    char ch;
+
+while((ch=tolower(getchar()))!='\n')
+    if(ch>='a' && ch<='z') array[ch-'a']++;
+
+printf("Enter second words: ");
+
+while((ch=tolower(getchar()))!='\n')
+if(ch>='a' && ch<='z') array[ch-'a']--;
+
+printf("The words are ");
+
+for(unsigned char i=0;i<size;i++){
+    if(array[i]){
+        printf("not ");
+        break;
     }
-    if (same) {
-        printf("The words are anagrams.\n");
-        return 0;
-    }
-    printf("The words are not anagrams.\n");
-    return 0;
 }
+
+printf("anagrams.");
+
+
+  return 0;
+}
+

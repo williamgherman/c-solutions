@@ -1,27 +1,26 @@
 #include <stdio.h>
-#include <stdlib.h> /* exit */
+#include <stdlib.h>
+#include <ctype.h>
+#include <strings.h>
 
 int main(int argc, char *argv[])
 {
-    FILE *fp;
-    unsigned long long int count = 0;
+  if(argc<2){
+    fprintf(stderr,"Too few arguments provided");
+    exit(EXIT_FAILURE);
+  }
 
-    if (argc != 2)
-    {
-        fprintf(stderr, "USAGE: fchar filename\n");
-        exit(EXIT_FAILURE);
-    }
+  FILE *file;
 
-    if ((fp = fopen(argv[1], "r")) == NULL)
-    {
-        fprintf(stderr, "Error: %s cannot be opened\n", argv[1]);
-        exit(EXIT_FAILURE);
-    }
+ if(!(file=fopen(argv[1],"r"))){
+    fprintf(stderr,"cant open %s file",argv[1]);
+    exit(EXIT_FAILURE);
+ }
 
-    while (getc(fp) != EOF)
-        count++;
-    fclose(fp);
+ char ch=0;
+ while(getc(file)!=EOF) ch++;
+ fclose(file);
+ printf("%d characters in %s",ch,argv[1]);
 
-    printf("Characters in %s: %llu\n", argv[1], count);
-    exit(EXIT_SUCCESS);
+ return 0;
 }

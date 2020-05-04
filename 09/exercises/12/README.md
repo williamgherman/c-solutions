@@ -11,14 +11,10 @@ b[n-1]`.
 ### Solution
 
 ```c
-double inner_product(double a[], double b[], int n) {
+double inner_product(double a[], double b[], int n){
+double sum=0;
 
-    int i;
-    double result;
+for(int i=0;i<n;i++) sum+=a[i]*b[i];
 
-    for (i = 0; i < n; i++)
-        result += (a[i] * b[i]);
-
-    return result;
+return sum;
 }
-```

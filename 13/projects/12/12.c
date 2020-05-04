@@ -1,36 +1,35 @@
+#include <stdbool.h>   /* C99 only */
+
 #include <stdio.h>
 
-#define MAX_WORDS 30
-#define MAX_LEN 20
+#define size 150
+#define word_size 20
+#define row_size 30
 
-int main(void) {
+char array[row_size][word_size+1];
 
-    int i = 0, j = 0;
-    char c;
-    char terminating_char = 0;
-    char sentence[MAX_WORDS][MAX_LEN + 1];
+int main(void)
 
+{
     printf("Enter a sentence: ");
-    while ((c = getchar()) != '\n' && i < MAX_WORDS) {
-        if (c == ' ' || c == '\t') {
-            sentence[i][j] = '\0';
-            i++;
-            j = 0;
-            continue;
-        }
-        if (c == '.' || c == '!' || c == '?') {
-            terminating_char = c;
-            sentence[i][j] = '\0';
-            break;
-        }
-        else if (j < MAX_LEN)
-            sentence[i][j++] = c;
+
+char c=0;
+char b=0;
+char terminator=0;
+    while((array[c][b]=getchar())!='\n' && c<=row_size){
+            if(array[c][b]==' ' ) {
+                    array[c][b]='\0';
+                c++;
+                b=0;
+            }
+            else if(array[c][b]=='?') terminator=array[c][b];
+    else b++;
     }
+    array[c][b]='\0';
 
-    printf("Reversal of sentence: ");
-    while (i > 0)
-        printf("%s ", sentence[i--]);
-    printf("%s%c\n", sentence[i], terminating_char);
+   while(c>=0) printf("%s ",array[c--]);
+   putchar(terminator);
 
-    return 0;
+  return 0;
+
 }

@@ -24,3 +24,16 @@ int count_words(char *sentence)
     return count;
 }
 ```
+### Solution 2
+```
+int count_words(char *sentence)
+{
+    if(!strtok(sentence," \t\r\n\v\f")) return 0;
+
+    char counter=1;
+    
+    for(;strtok(NULL," \t\r\n\v\f");counter++);
+
+    return counter;
+}
+```

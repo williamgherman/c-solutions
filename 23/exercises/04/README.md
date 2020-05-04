@@ -21,3 +21,14 @@ bool is_identifier(char *s)
     return true;
 }
 ```
+### my version
+```
+bool syntax(char *a){
+
+    if(!isalpha(*a) && *a!='_') return false;
+
+    for(unsigned char i=0;i<strlen(a);i++) if(!isalnum(a[i]) && a[i]!='_') return false;
+
+    return true;
+}
+```

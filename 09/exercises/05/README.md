@@ -6,13 +6,13 @@ indicates how many digits *n* originally had.
 
 ### Solution
 
-```c
-int num_digits(int n) {
-    int i = 0;
-    while (n > 0) {
-        n /= 10;
-        i++;
-    }
-    return i;
+unsigned int num_digits(unsigned long n){
+    unsigned int counter=0;
+while(n){
+    n/=10;
+    counter++;
 }
+return counter;
+}
+
 ```

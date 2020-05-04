@@ -1,93 +1,135 @@
 #include <stdio.h>
-#include <stdlib.h> /* srand(), rand() */
-#include <time.h> /* time() */
+#include <stdlib.h>
+#include <time.h>
+#include <stdbool.h>
 
-int main(void) {
-
-    void generate_random_walk(char grid[10][10]);
-    void print_array(char grid[10][10]);
-
-    char grid[10][10] = {0};
-
-    srand((unsigned) time(NULL));
-
-    generate_random_walk(grid);
-    print_array(grid);
+#define rows 10
+#define cols 10
+void print_array(char array[10][10]);
+void generate_walk(char array[10][10]);
+int main()
+{
+ char array[rows][cols];
+ generate_walk(array);
+print_array(array);
     return 0;
 }
 
-void generate_random_walk(char grid[10][10]) {
-
-    char letter = 'A';
-
-    int i = 0,
-        j = 0,
-        up = 0,   /* directions are essentially bools, written as ints to */
-        down = 0, /* conform with C89 standard.                           */
-        left = 0,
-        right = 0,
-        move = 0;
-
-    srand((unsigned) time(NULL));
-
-   
-    grid[i][j] = letter++;
-
-    while (letter <= 'Z') {
-        up = down = left = right = move = 0;
-
-        if (j + 1 < 10 && grid[i][j + 1] == 0)
-            up = 1;
-        if (j - 1 >= 0 && grid[i][j - 1] == 0)
-            down = 1;
-        if (i + 1 < 10 && grid[i + 1][j] == 0)
-            right = 1;
-        if (i - 1 >= 0 && grid[i - 1][j] == 0)
-            left = 1;
-
-        if (up + down + left + right == 0)
-            break;
-
-        move = rand() % 4;
-        
-
-        /* Intentional fallthrough if direction fails */
-        switch(move) {
-            case 0:
-                if (up) {
-                    grid[i][++j] = letter++;
-                    break;
-                }
-            case 1:
-                if (down) {
-                    grid[i][--j] = letter++;
-                    break;
-                }
-            case 2:
-                if (right) {
-                    grid[++i][j] = letter++;
-                    break;
-                }
-            case 3:
-                if (left) {
-                    grid[--i][j] = letter++;
-                    break;
-                }
-            default:
-                break;
-        }
+void print_array(char array[10][10]){
+for(unsigned char i=0;i<10;i++){
+    for(unsigned char b=0;b<10;b++){
+        printf("%c",array[i][b]);
     }
-    return;
+    putchar('\n');
 }
-void print_array(char grid[10][10]) {
-    int i, j;
 
-    for (i = 0; i < 10; i++) {
-        for (j = 0; j < 10; j++) {
-            if (grid[i][j] == 0) 
-                grid[i][j] = '.';
-            printf("%c ", grid[i][j]);
-        }
-        printf("\n");
-    }
-} 
+}
+
+void generate_walk(char array[10][10]){
+for(unsigned char i=0;i<rows;i++)
+        for(unsigned char b=0;b<cols;b++)
+        array[i][b]='.';
+
+
+srand((unsigned int)time(NULL));
+
+bool error=false;
+
+for(char letter='A',r=0,c=0;letter<='Z' && !error;letter++){
+
+unsigned char move=rand()%4;
+
+switch(move){
+case 0:
+if((r+1<rows) && (array[r+1][c]=='.')) {
+        array[r+1][c]=letter;
+r++;
+}
+else if((r-1>=0) && (array[r-1][c]=='.')) {
+        array[r-1][c]=letter;
+r--;
+}
+
+else if((c+1<cols) && (array[r][c+1]=='.')) {
+        array[r][c+1]=letter;
+c++;
+}
+else if((c-1>=0) && (array[r][c-1]=='.')) {
+        array[r][c-1]=letter;
+c--;
+}
+else error=true;
+
+break;
+
+case 1:
+    if((r-1>=0) && (array[r-1][c]=='.')) {
+        array[r-1][c]=letter;
+r--;
+}
+else if((r+1<rows) && (array[r+1][c]=='.')) {
+        array[r+1][c]=letter;
+r++;
+}
+
+else if((c+1<cols) && (array[r][c+1]=='.')) {
+        array[r][c+1]=letter;
+c++;
+}
+
+else if((c-1>=0) && (array[r][c-1]=='.')) {
+        array[r][c-1]=letter;
+c--;
+}
+else error=true;
+break;
+
+case 2:
+    if((c+1<cols) && (array[r][c+1]=='.')) {
+        array[r][c+1]=letter;
+c++;
+}
+else if((c-1>=0) && (array[r][c-1]=='.')) {
+        array[r][c-1]=letter;
+c--;
+}
+
+else if((r+1<rows) && (array[r+1][c]=='.')) {
+        array[r+1][c]=letter;
+r++;
+}
+
+else if((r-1>=0) && (array[r-1][c]=='.')) {
+        array[r-1][c]=letter;
+r--;
+}
+else error=true;
+break;
+
+case 3:
+if((c-1>=0) && (array[r][c-1]=='.')) {
+        array[r][c-1]=letter;
+c--;
+}
+else if((c+1<cols) && (array[r][c+1]=='.')) {
+        array[r][c+1]=letter;
+c++;
+}
+else if((r+1<rows) && (array[r+1][c]=='.')) {
+        array[r+1][c]=letter;
+r++;
+}
+
+else if((r-1>=0) && (array[r-1][c]=='.')) {
+        array[r-1][c]=letter;
+r--;
+}
+else error=true;
+
+break;
+
+default:
+    break;
+}
+}
+}

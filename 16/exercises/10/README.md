@@ -63,3 +63,12 @@ bool is_within_rect(struct rectangle r, struct point p) {
             && p.y > r.upper_left.y && p.y < r.lower_right.y);
 }
 ```
+
+// (d)
+// bugfix
+
+bool determine_point(struct rectangle r,struct point p){
+
+return (p.x>=r.upper_left.x && p.x<=r.lower_right.x) && (p.y>=r.lower_right.y && p.y<=r.upper_left.y)?true:false;
+
+}

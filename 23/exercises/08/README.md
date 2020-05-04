@@ -24,3 +24,15 @@ int numchar(const char *s, char ch)
     return count;
 }
 ```
+### Solution 2
+
+```
+int numchar(const char *s, char ch){
+int count = 0;
+    s = strchr(s, ch);
+
+    for(;s;count++) s=strchr(++s,ch);
+
+return count;
+}
+```
