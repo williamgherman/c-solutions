@@ -15,7 +15,7 @@ int main(void) {
     scanf("%d /%d /%d", &month, &day, &year);
 
     printf("Item\t\tUnit\t\tPurchase\n\t\tPrice\t\tDate\n");
-    printf("%d\t\t$%8.2f\t%.2d/%.2d/%.4d\n", item, price, month, day, year);
+    printf("%d\t$%8.2f\t%.2d/%.2d/%.4d\n", item, price, month, day, year);
 
     return 0;
 }
