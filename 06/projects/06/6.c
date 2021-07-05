@@ -2,16 +2,14 @@
 
 int main(void) {
 
-    int n, i;
+    int n = 0;
 
-    printf("Enter a number: ");
+    
+    printf("Enter number: ");
     scanf("%d", &n);
-
-    for (i = 1; i * i <= n; i++) {
-        if ((i * i) % 2 != 0)
-            continue;
-        printf("%d\n", i * i);
-    }
+    int b = 1;
+    
+    while (b * b++ <= n) if (!(b * b % 2)) printf("%d\n",b * b);
 
     return 0;
 }
