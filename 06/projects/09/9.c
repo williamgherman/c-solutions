@@ -5,9 +5,9 @@ int main(void) {
     float loan = 0.0f,
           rate = 0.0f,
           payment = 0.0f;
-    int i,
-        num_of_payments;
 
+    int numberOfPayments = 0;
+    
     printf("Enter amount of loan: ");
     scanf("%f", &loan);
 
@@ -18,12 +18,22 @@ int main(void) {
     scanf("%f", &payment);
 
     printf("Enter number of payments: ");
-    scanf("%d", &num_of_payments);
+    scanf("%d",&numberOfPayments);
 
-    for (i = 1; i <= num_of_payments; i++) {
+    int counter = 1;
+    
+    while (counter <= numberOfPayments) {
+    
         loan = loan - payment + (loan * rate / 100.0 / 12.0);
-        printf("Balance remaining after payment %d: $%.2f\n", i, loan);
+        
+        if (loan > 0) printf("Balance remaining after %d payment: $%.2f\n",counter, loan);
+        
+        else break;
+        
+        counter++;
+        
     }
+    
 
     return 0;
 }
