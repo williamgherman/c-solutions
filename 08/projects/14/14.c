@@ -1,3 +1,5 @@
+###Solution1
+
 #include <stdbool.h>   /* C99 only */
 #include <stdio.h>
 
@@ -44,3 +46,38 @@ if(end_char) putchar(end_char);
   return 0;
 }
 
+###Solution2
+
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+#define SIZE 50
+int main(void) {
+
+    char c = 0;
+    char my_array[SIZE] = {0};
+    
+    printf("Enter a Sentence: ");
+    unsigned short counter = 0;
+    
+    while ((c=getchar()) != '\n') my_array[counter++] = c;
+    
+    char start=0;
+    char endmark = ispunct(my_array[strlen(my_array)-1])?my_array[strlen(my_array)-1]:0;
+    
+    printf("There reverse is: ");
+    for (char i = strlen(my_array)-1; i>=0; i--) {
+        
+        if (isspace(my_array[i]) || !i) {
+            start = !i ? i : i+1;
+            while (!isspace(my_array[start]) && my_array[start]!='\0' && !ispunct(my_array[start])) putchar(my_array[start++]);
+            putchar(!i ? i :' ');
+        }
+    }
+    
+    putchar(endmark);
+    putchar('\n');
+    
+    return 0;
+}
