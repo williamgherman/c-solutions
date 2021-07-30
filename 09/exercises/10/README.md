@@ -10,7 +10,7 @@ array.)
 ### Solution
 
 #### (a).
-
+```c
 #include <stdbool.h>   /* C99 only */
 #include <stdio.h>
 #include <ctype.h>
@@ -52,3 +52,5 @@ unsigned long counter=0;
 for(unsigned char i=0;i<_size;i++) if(a[i]>0) counter++;
 return counter;
 }
+
+```
