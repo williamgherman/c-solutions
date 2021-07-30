@@ -41,7 +41,7 @@ return largest;
 }
 ###Solution2
 int my_array(int a[],int n){
-    int tmp=a[0];
+    int tmp=0;
     while (n--) if(a[n] > tmp) tmp = a[n];
     return tmp;
 }
