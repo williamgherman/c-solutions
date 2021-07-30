@@ -46,6 +46,7 @@ int my_array(int a[],int n){
     return tmp;
 }
 
+###Solution1
 double average_element(int a[],unsigned long _size){
 long sum=0;
 
@@ -53,6 +54,17 @@ for(unsigned char i=0;i<_size;i++) sum+=a[i];
 
 
 return (double)sum/_size;
+}
+
+#Solution2
+float my_array(int a[],int n){
+    int sum = 0;
+    
+    float length = n;
+    
+    while (n--) sum+=a[n];
+    
+    return sum/length;
 }
 
 unsigned long positive_integers(int a[],unsigned long _size){
