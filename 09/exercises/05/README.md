@@ -5,7 +5,7 @@ divide it by 10 repeatedly. When *n* reaches 0, the number of divisions
 indicates how many digits *n* originally had.
 
 ### Solution
-
+```
 unsigned int num_digits(unsigned long n){
     unsigned int counter=0;
 while(n){
