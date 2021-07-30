@@ -32,10 +32,18 @@ printf("the number of positive elements in array %lu",positive_integers(a,b));
 
   return 0;
 }
+
+###Solution1
 int largest_element(int a[],unsigned long _size){
     int largest=0;
 for(unsigned char i=0;i<_size;i++) if(largest<a[i]) largest=a[i];
 return largest;
+}
+###Solution2
+int my_array(int a[],int n){
+    int tmp=a[0];
+    while (n--) if(a[n] > tmp) tmp = a[n];
+    return tmp;
 }
 
 double average_element(int a[],unsigned long _size){
