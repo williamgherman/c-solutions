@@ -67,10 +67,19 @@ float my_array(int a[],int n){
     return sum/length;
 }
 
+###Solution1
 unsigned long positive_integers(int a[],unsigned long _size){
 unsigned long counter=0;
 for(unsigned char i=0;i<_size;i++) if(a[i]>0) counter++;
 return counter;
 }
+
+#Solution2
+int my_array(int a[],int n){
+    int sum=0;
+    while (n--) if (a[n]>0) sum++;
+    return sum;
+}
+
 
 ```
