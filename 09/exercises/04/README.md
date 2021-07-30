@@ -4,7 +4,7 @@ year (an integer between 1 and 366) specified by the three arguments.
 
 ### Solution
 
-'''c
+```c
 int day_of_year(int month, int day, int year) {
 if(day<=0 || day>31 || month<=0 || month>12 || !year || (month==2 && day>29) \
    || (!(year%400) || !(year%4) && year%100) && day>29) return 0;
@@ -21,4 +21,4 @@ for(unsigned char i=1;i<month;i++){
 }
     return sum+day;
 }
-'''
+```
