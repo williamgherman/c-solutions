@@ -11,6 +11,7 @@ b[n-1]`.
 ### Solution
 
 ```c
+###Solution1
 double inner_product(double a[], double b[], int n){
 double sum=0;
 
@@ -18,3 +19,12 @@ for(int i=0;i<n;i++) sum+=a[i]*b[i];
 
 return sum;
 }
+
+###Solution2
+double inner_product(double a[],double b[],int n){
+    double sum=0;
+    while (n--) sum+=a[n] * b[n];
+    return sum;
+
+}
+```
