@@ -4,6 +4,7 @@
 #include <ctype.h>
 #define array_size 5
 void quicksort(int array[],int _size);
+void selection_sort(int a[],int n);
 
 int main(void) {
 printf("Enter integers 5 integers:");
@@ -12,8 +13,12 @@ memset(array,0,sizeof(array));
 
 for(unsigned char i=0;i<5;scanf("%d",&array[i++]));
 
+ //using iteration
 quicksort(array,array_size);
 
+ //using recursion
+ selection_sort(my_array, array_size-1);
+ 
 for(unsigned char i=0;i<5;i++) printf("%d ",array[i]);
 
     return 0;
@@ -37,4 +42,16 @@ array[bottom]=temp;
 }
 bottom++;
 }
+}
+
+//using recursion
+void selection_sort(int a[],int n){
+    if(!n) return;
+    int largest = 0;
+    for (int i = 0; i<=n; i++) if (a[largest] < a[i]) largest = i;
+    int tmp = a[largest];
+    a[largest] = a[n];
+    a[n] = tmp;
+    
+    selection_sort(a, n-1);
 }
