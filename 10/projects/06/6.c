@@ -41,32 +41,21 @@ while(1){
 char ch;
 while((ch=getchar())!='\n'){
 
-      if(isdigit(ch)) {
-            push(ch-48);
-      }
-
-      else if(ch=='*') {
-            int a=pop();
-      int b=pop();
-      push(a*b);
-}
-        else if(ch=='+'){
-            int a=pop();
-      int b=pop();
-      push(a+b);
-        }
-        else if(ch=='-'){
-            int a=pop();
+      if(isdigit(ch)) push(ch-48);
+      else if(ch=='*') push(pop()*pop());
+      else if(ch=='+')push(pop()+pop());
+      else if(ch=='-'){
+      int a=pop();
       int b=pop();
       push(b-a);
         }
-        else if(ch=='/'){
-            int a=pop();
+      else if(ch=='/'){
+      int a=pop();
       int b=pop();
       push(b/a);
         }
         else if(ch=='='){
-            printf("%d\n",pop());
+            printf("%d\n Enter new one",pop());
         }
 
               }}
