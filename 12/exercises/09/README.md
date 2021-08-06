@@ -28,9 +28,10 @@ double inner_product(const double *a, const double *b, int n){
     for (const double *p = a, *q = b; p < a+n && q < a+n; sum+=*p++**q++);
     return sum;
 }
+```
 ### Solution 3
-```c
 
+```c
 double inner_product(const double *a, const double *b, int n){
     double sum = 0;
     while (n-- > 0) {
