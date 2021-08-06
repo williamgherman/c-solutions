@@ -21,3 +21,11 @@ double inner_product(const double *a, const double *b, int n) {
         sum += *a++ * *b++;
 }
 ```
+### Solution 2
+```c
+double inner_product(const double *a, const double *b, int n){
+    double sum = 0;
+    for (const double *p = a, *q = b; p < a+n && q < a+n; sum+=*p++**q++);
+    return sum;
+}
+```
