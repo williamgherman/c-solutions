@@ -34,9 +34,17 @@ double inner_product(const double *a, const double *b, int n){
 ```c
 double inner_product(const double *a, const double *b, int n){
     double sum = 0;
-    while (n-- > 0) {
+    while (n-- >= 0) {
         sum+= *a++ * *b++;
     }
+    return sum;
+}
+```
+### Solution 4
+```c
+double inner_product(const double *a, const double *b, int n){
+    double sum = 0;
+    for (; n-- >= 0; sum+=*a++**b++);
     return sum;
 }
 ```
