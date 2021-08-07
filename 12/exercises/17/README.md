@@ -27,3 +27,11 @@ int sum_two_dimensional_array(const int a[][LEN], int n) {
     return sum;
 }
 ```
+#Solution 2
+```c
+int sum_two_dimesional_array(const int a[][LEN],int n){
+    int sum = 0;
+    for (int *p = a; p < a + n; sum+=*p++);
+    return sum;
+}
+```
