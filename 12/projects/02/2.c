@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include <ctype.h> /* isalpha, toupper */
-
+### Solution1
+```c
 #define MAX_LEN 100
+
 
 int main(void) {
 
@@ -25,3 +27,31 @@ int main(void) {
     printf("Palindrome\n");
     return 0;
 }
+```
+### Solution2
+```c
+#define SIZE 30
+
+int main(void) {
+    printf("Enter a message: ");
+    char my_array[SIZE] = {0};
+    
+    char *p = my_array;
+    
+    while ((*p=tolower(getchar()))!='\n' && p<my_array+SIZE){
+        if (isalpha(*p)) {
+            p++;
+        }
+    }
+    --p;
+    
+    for (char *q = my_array; p>=my_array && q<my_array+SIZE; p--,q++) {
+        if (*q!=*p) {
+            printf("Not ");
+            break;
+        }
+    }
+    puts("Polidrome");
+    return 0;
+}
+```
