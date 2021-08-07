@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <ctype.h> /* isalpha, toupper */
 ### Solution1
-```c
+
 #define MAX_LEN 100
 
 
@@ -27,9 +27,9 @@ int main(void) {
     printf("Palindrome\n");
     return 0;
 }
-```
+
 ### Solution2
-```c
+
 #define SIZE 30
 
 int main(void) {
@@ -54,4 +54,4 @@ int main(void) {
     puts("Polidrome");
     return 0;
 }
-```
+
