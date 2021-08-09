@@ -43,8 +43,9 @@ void capitalize(char *str) {
 }
 ```
 ### Solution 1b
-///original solution b cant work
+
 ```c
+///original solution b cant work
 void capitalize(char a[]){
     for (char *p = a; *p!='\0'; p++) toupper(p);
 }
