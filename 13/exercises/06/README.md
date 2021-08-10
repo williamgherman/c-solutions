@@ -16,3 +16,11 @@ void censor(char *str) {
     }
 }
 ```
+
+### Solution 2
+```c
+void censor(char *str) {
+    char *c = str;
+    while (*(c+++2)) if (*c == 'f' && *(c+1) == 'o' && *(c+2) == 'o') *c = *(c+1) = *(c+2) = 'x';
+}
+```
