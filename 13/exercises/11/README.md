@@ -16,3 +16,12 @@ int strcmp(char *s, char *t)
     return *s - *t;
 }
 ```
+### Solution 2
+```c
+int my_strcmp( char *s, char *t){
+    for (; *s==*t;s++,t++) {
+        if(!*s) return 0;
+    }
+    return *s-*t;
+}
+```
