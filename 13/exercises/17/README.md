@@ -26,3 +26,15 @@ bool test_extension(const char *file_name, const char *extension) {
     return true;
 }
 ```
+### Corrected Solution
+//original solution has flaw in the code first while check is infinite loop.
+//can be proven via throwing in a counter inside the loop and providing fixed size string.
+```c
+bool test_extension(const char *file_name, const char *extension) {
+while (*file_name != '.' && *file_name++);
+while (*file_name && *extension)
+        if (toupper(*file_name++) != toupper(*extension++))
+            return false;
+    return true;
+    }
+    ```
