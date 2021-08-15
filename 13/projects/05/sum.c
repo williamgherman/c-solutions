@@ -9,3 +9,16 @@ int main(int argc, char *argv[]) {
     printf("Total: %d\n", sum);
     return 0;
 }
+
+/// and with pointer
+int main(int argc, char *argv[])
+{
+    char **p;
+    int sum=0;
+    for (p=&argv[argc-1]; p!=argv; p--) {
+        sum+=atoi(*p);
+    }
+    printf("Total: %d\n",sum);
+  
+  return 0;
+}
