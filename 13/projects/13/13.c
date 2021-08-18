@@ -45,3 +45,11 @@ for(char *counter=message;counter<message+strlen(message);counter++){
 }
 
 }
+
+//Solution2
+void encrypt(char *message,int shift){
+    while(*message++){
+        if(*message>='A' && *message<='Z') *message= (((*message - 'A') + shift) % 26 + 'A');
+        else if (*message>='a' && *message<='z') *message=(((*message - 'a') + shift) % 26 + 'a');
+    }
+}
