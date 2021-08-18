@@ -33,3 +33,45 @@ char terminator=0;
   return 0;
 
 }
+
+///Solution 2
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+
+int main(void) {
+    
+    char my_array[30][20] = {0};
+    
+    printf("Enter a sentence: ");
+    char letter=0;
+    char rows = 0;
+    char cols = 0;
+    char endrow=0;
+    while((letter=getchar())!='\n' && rows < 30 && cols < 20) {
+        if (isspace(letter)) {
+            my_array[rows++][cols] = '\0';
+            cols = 0;
+            continue;
+        }
+        my_array[rows][cols++] = letter;
+    }
+    
+    
+    endrow = rows;
+    char endmark = 0;
+    while (rows >= 0) {
+        if (rows == endrow && ispunct(my_array[rows][strlen(my_array[rows])-1])) {
+            endmark = my_array[rows][strlen(my_array[rows])-1];
+            my_array[rows][strlen(my_array[rows])-1] = '\0';
+            
+        }
+        printf(!rows?"%s":"%s ",my_array[rows--]);
+        
+    }
+    printf("%c\n",endmark);
+    
+    
+    return 0;
+}
+
