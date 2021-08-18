@@ -28,3 +28,12 @@ for(char *p=sentence;p<=sentence+strlen(sentence);p++) {
 return (double)length/words;
 }
 
+
+//Solution 2
+double compute_average_word_length(const char *sentence){
+    int words = 1;
+    int length = 0;
+    while (*sentence) *sentence++==' '?words++:length++;
+    return (double)length/words;
+    
+}
