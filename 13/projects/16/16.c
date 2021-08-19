@@ -35,3 +35,8 @@ char *p=message;
     }
 }
 
+//Solution2
+void reverse_message(char *message){
+    char *q = &message[strlen(message)-1];
+    for (char *p = message,tmp; p<=q;tmp=*q,*q--=*p,*p++=tmp);
+}
