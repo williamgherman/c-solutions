@@ -10,7 +10,7 @@ printf("Enter a date (mm/dd/yyyy): ");
 int month;
 int day;
 int year;
-scanf("%d/%d/%d",&month,&day,&year);
+scanf("%2d/%2d/%4d",&month,&day,&year);
 
 char *month_names[]={"January","Fabruary","March","April","May","June","July","August","September"\
 ,"October","November","December"};
