@@ -40,3 +40,14 @@ bool is_palindrome(const char *message) {
     }
     return true;
 }
+
+//Solution2
+bool is_palindrome(const char *message) {
+    const char *q=message;
+
+    while (*q)q++;
+    q--;
+
+    while (message < q) if (toupper(*message++) != toupper(*q--)) return false;
+    return true;
+}
