@@ -48,6 +48,6 @@ bool is_palindrome(const char *message) {
     while (*q)q++;
     q--;
 
-    while (message < q) if (toupper(*message++) != toupper(*q--)) return false;
+    while (message < q) if (toupper(*message++) != toupper(*q--)) return false; //no need to check toupper when putting into array in main
     return true;
 }
