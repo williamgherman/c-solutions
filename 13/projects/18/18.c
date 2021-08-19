@@ -15,7 +15,7 @@ scanf("%d/%d/%d",&month,&day,&year);
 char *month_names[]={"January","Fabruary","March","April","May","June","July","August","September"\
 ,"October","November","December"};
 
-printf("You entered the date %s %d, %d\n",month_names[month-1],day,year);
+printf("You entered the date %s %.2d, %.4d\n",month_names[month-1],day,year);
             return 0;
 
     }
