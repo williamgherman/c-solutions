@@ -5,7 +5,7 @@
 int main(void) {
     
     char message[MAX_LEN];
-    char c, *p = message;
+    char c, *p = &message[0];
 
     printf("Enter a message: ");
 
