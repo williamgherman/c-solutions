@@ -6,7 +6,7 @@
 int main(void) {
 
     char message[MAX_LEN];
-    char c, *p = message, *q;
+    char c, *p = &message[0], *q;
 
     printf("Enter a message: ");
 
@@ -16,7 +16,7 @@ int main(void) {
     }
     p--;
 
-    for (q = message; q < p; q++, p--) {
+    for (q = &message[0]; q < p; q++, p--) {
         if (*p != *q) {
             printf("Not a palindrome\n");
             return 0;
