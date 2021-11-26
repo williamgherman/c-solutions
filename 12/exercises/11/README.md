@@ -10,10 +10,11 @@ int find_largest(int a[], int n) {
     int *p = a;
     int largest = *p++;
 
-    while (p++ < a + n) {
+    while (p < a + n) {
         if (*p > largest) {
             largest = *p;
         }
+        p++;
     }
     return largest;
 }
