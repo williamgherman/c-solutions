@@ -21,5 +21,5 @@ Show the output produced by each of the following program fragments. Assume that
 
 (a) 12 12  
 (b) 3 4  
-(c) 2 9  
+(c) 2 8  
 (d) 6 9
