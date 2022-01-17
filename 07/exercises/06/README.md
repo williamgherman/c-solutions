@@ -13,4 +13,4 @@ store the item.
 (a) Max. 31: `char`  
 (b) Max. 366: `short`  
 (c) Max. 1500: `short`  
-(d) Max. 86760: `long`
+(d) Max. 864000: `int` 
