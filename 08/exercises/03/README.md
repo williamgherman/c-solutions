@@ -6,5 +6,5 @@ values should be `false`;
 ### Solution
 
 ```c
-int weekend[7] = {1, 0, 0, 0, 0, 0, 1};
+int weekend[7] = {1,0,0,0,0,0,1}; 
 ```
