@@ -2,7 +2,7 @@
 
 int main(void) {
 
-    int n1, n2, n3, n4, max, min, min1, min2;
+    int n1, n2, n3, n4, max, min, min1, min2, max1, max2;
 
     printf("Enter four integers: ");
     scanf("%d%d%d%d", &n1, &n2, &n3, &n4);
