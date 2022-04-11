@@ -58,10 +58,8 @@ int array[ROWS][COLS]={0};
 int row_sum[ROWS]={0};
 int col_sum[COLS]={0};
 
-for(int i=0;i<ROWS;i++){
-printf("Enter row %d:",i+1);
+for(int i=0;i<ROWS && printf("Enter row %d:",i+1);i++)
         for(int b=0;b<ROWS;scanf(" %d",&array[i][b++]));
-}
 
 printf("Row totals: ");
 for(int i=0;i<ROWS;){
