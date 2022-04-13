@@ -2,112 +2,61 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdbool.h>
+#include <string.h>
 
-#define rows 10
-#define cols 10
+#define ROWS 10
+#define COLS 10
+#define UP 0
+#define DOWN 1
+#define RIGHT 2
+#define LEFT 3
 
 int main()
 {
- char array[rows][cols];
- for(unsigned char i=0;i<rows;i++)
-        for(unsigned char b=0;b<cols;b++)
-        array[i][b]='.';
-
+ char array[ROWS][COLS];
+ memset(array,'.',ROWS*COLS*sizeof(char));
 
 srand((unsigned int)time(NULL));
 
 bool error=false;
+unsigned char r=0;
+unsigned char c=0;
 
-for(char letter='A',r=0,c=0;letter<='Z' && !error;letter++){
+for(char letter='A';letter<='Z' && !error;letter++){
 
 unsigned char move=rand()%4;
 
 switch(move){
-case 0:
-if((r+1<rows) && (array[r+1][c]=='.')) {
-        array[r+1][c]=letter;
-r++;
-}
-else if((r-1>=0) && (array[r-1][c]=='.')) {
-        array[r-1][c]=letter;
-r--;
-}
-
-else if((c+1<cols) && (array[r][c+1]=='.')) {
-        array[r][c+1]=letter;
-c++;
-}
-else if((c-1>=0) && (array[r][c-1]=='.')) {
-        array[r][c-1]=letter;
-c--;
-}
-else error=true;
-
+case UP:
+    if((r+1<ROWS) && (array[r+1][c]=='.')) array[++r][c]=letter;
+    else if((r-1>=0) && (array[r-1][c]=='.')) array[--r][c]=letter;
+    else if((c+1<COLS) && (array[r][c+1]=='.')) array[r][++c]=letter;
+    else if((c-1>=0) && (array[r][c-1]=='.')) array[r][--c]=letter;
+    else error=!error;
 break;
 
-case 1:
-    if((r-1>=0) && (array[r-1][c]=='.')) {
-        array[r-1][c]=letter;
-r--;
-}
-else if((r+1<rows) && (array[r+1][c]=='.')) {
-        array[r+1][c]=letter;
-r++;
-}
-
-else if((c+1<cols) && (array[r][c+1]=='.')) {
-        array[r][c+1]=letter;
-c++;
-}
-
-else if((c-1>=0) && (array[r][c-1]=='.')) {
-        array[r][c-1]=letter;
-c--;
-}
-else error=true;
+case DOWN:
+    if((r-1>=0) && (array[r-1][c]=='.')) array[--r][c]=letter;
+    else if((r+1<ROWS) && (array[r+1][c]=='.')) array[++r][c]=letter;
+    else if((c+1<COLS) && (array[r][c+1]=='.')) array[r][++c]=letter;
+    else if((c-1>=0) && (array[r][c-1]=='.')) array[r][--c]=letter;
+    else error=!error;
 break;
 
-case 2:
-    if((c+1<cols) && (array[r][c+1]=='.')) {
-        array[r][c+1]=letter;
-c++;
-}
-else if((c-1>=0) && (array[r][c-1]=='.')) {
-        array[r][c-1]=letter;
-c--;
-}
-
-else if((r+1<rows) && (array[r+1][c]=='.')) {
-        array[r+1][c]=letter;
-r++;
-}
-
-else if((r-1>=0) && (array[r-1][c]=='.')) {
-        array[r-1][c]=letter;
-r--;
-}
-else error=true;
+case RIGHT:
+    if((c+1<COLS) && (array[r][c+1]=='.')) array[r][++c]=letter;
+    else if((c-1>=0) && (array[r][c-1]=='.')) array[r][--c]=letter;
+    else if((r+1<ROWS) && (array[r+1][c]=='.')) array[++r][c]=letter;
+    else if((r-1>=0) && (array[r-1][c]=='.')) array[--r][c]=letter;
+    else error=!error;
 break;
 
-case 3:
-if((c-1>=0) && (array[r][c-1]=='.')) {
-        array[r][c-1]=letter;
-c--;
-}
-else if((c+1<cols) && (array[r][c+1]=='.')) {
-        array[r][c+1]=letter;
-c++;
-}
-else if((r+1<rows) && (array[r+1][c]=='.')) {
-        array[r+1][c]=letter;
-r++;
-}
-
-else if((r-1>=0) && (array[r-1][c]=='.')) {
-        array[r-1][c]=letter;
-r--;
-}
-else error=true;
+case LEFT:
+    if((c-1>=0) && (array[r][c-1]=='.')) array[r][--c]=letter;
+    else if((c+1<COLS) && (array[r][c+1]=='.')) array[r][++c]=letter;
+    else if((r+1<ROWS) && (array[r+1][c]=='.')) array[++r][c]=letter;
+    else if((r-1>=0) && (array[r-1][c]=='.')) array[--r][c]=letter;
+    else error=!error;
 
 break;
 
@@ -116,13 +65,10 @@ default:
 }
 }
 
-for(unsigned char i=0;i<rows;i++){
-    for(unsigned char b=0;b<cols;b++){
-        printf("%c",array[i][b]);
-    }
+for(unsigned char i=0,b=0;i<ROWS;i++,b=0){
+    while(b<COLS) putchar(array[i][b++]);
     putchar('\n');
-}
+    }
+
     return 0;
 }
-
-    
