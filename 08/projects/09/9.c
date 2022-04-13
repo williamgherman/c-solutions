@@ -18,11 +18,11 @@ int main()
 
 srand((unsigned int)time(NULL));
 
-bool error=false;
 unsigned char r=0;
 unsigned char c=0;
+char letter='A';
 
-for(char letter='A';letter<='Z' && !error;){
+while(letter<='Z'){
 
 unsigned char move=rand()%4;
 
@@ -32,7 +32,7 @@ case UP:
     else if(r-1>=0 && array[r-1][c]=='.') array[--r][c]=letter++;
     else if(c+1<COLS && array[r][c+1]=='.') array[r][++c]=letter++;
     else if(c-1>=0 && array[r][c-1]=='.') array[r][--c]=letter++;
-    else error=!error;
+    else letter='a';//'a' is greater than 'Z' so bool var not needed!
 break;
 
 case DOWN:
@@ -40,7 +40,7 @@ case DOWN:
     else if(r+1<ROWS && array[r+1][c]=='.') array[++r][c]=letter++;
     else if(c+1<COLS && array[r][c+1]=='.') array[r][++c]=letter++;
     else if(c-1>=0 && array[r][c-1]=='.') array[r][--c]=letter++;
-    else error=!error;
+    else letter='a';
 break;
 
 case RIGHT:
@@ -48,7 +48,7 @@ case RIGHT:
     else if(c-1>=0 && array[r][c-1]=='.') array[r][--c]=letter++;
     else if(r+1<ROWS && array[r+1][c]=='.') array[++r][c]=letter++;
     else if(r-1>=0 && array[r-1][c]=='.') array[--r][c]=letter++;
-    else error=!error;
+    else letter='a';
 break;
 
 case LEFT:
@@ -56,7 +56,7 @@ case LEFT:
     else if(c+1<COLS && array[r][c+1]=='.') array[r][++c]=letter++;
     else if(r+1<ROWS && array[r+1][c]=='.') array[++r][c]=letter++;
     else if(r-1>=0 && array[r-1][c]=='.') array[--r][c]=letter++;
-    else error=!error;
+    else letter='a';
 
 break;
 
