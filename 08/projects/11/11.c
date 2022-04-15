@@ -105,7 +105,8 @@ default: i++;break;
 }
 }
 
-puts(p_number);
+printf("In numberic form: %s",p_number);
+
     return 0;
 }
 
