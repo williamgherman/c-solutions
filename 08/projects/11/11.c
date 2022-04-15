@@ -79,3 +79,33 @@ printf("In numeric form: ");
     return 0;
 
 }
+//another solution
+#include <stdio.h>
+#include <ctype.h>
+
+#define SIZE 15
+#define SIZE_OF(x) (unsigned char)(sizeof(x)/sizeof(x[0]))
+int main(void) {
+
+char p_number[SIZE]={0};
+
+unsigned char i=0;
+printf("enter phone number: ");
+while((p_number[i]=toupper(getchar()))!='\n'&& i<SIZE_OF(p_number)){
+switch(p_number[i]){
+case 'A':case 'B': case 'C': p_number[i++]='2';break;
+case 'D':case 'E': case 'F': p_number[i++]='3';break;
+case 'G':case 'H': case 'I': p_number[i++]='4';break;
+case 'J':case 'K': case 'L': p_number[i++]='5';break;
+case 'M':case 'N': case 'O': p_number[i++]='6';break;
+case 'P':case 'Q': case 'R': p_number[i++]='7';break;
+case 'T':case 'U': case 'V': p_number[i++]='8';break;
+case 'W':case 'X': case 'Y': p_number[i++]='9';break;
+default: i++;break;
+}
+}
+
+puts(p_number);
+    return 0;
+}
+
