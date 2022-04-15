@@ -1,8 +1,6 @@
 #include <stdio.h>
 
 #include <ctype.h>
-#define array_size 26
-
 
 int main(void) {
 
@@ -10,7 +8,7 @@ int main(void) {
 
     unsigned int sum=0;
 
-    char array[array_size]={1,3,3,2,1,4,2,4,1,8,5,1,3,1,1,3,10,1,1,1,1,4,4,8,4,10};
+    char array[]={1,3,3,2,1,4,2,4,1,8,5,1,3,1,1,3,10,1,1,1,1,4,4,8,4,10};
 
 
     printf("Enter a word: ");
