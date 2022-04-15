@@ -29,3 +29,25 @@ int main(void) {
     return 0;
 
 }
+#include <stdio.h>
+#include <ctype.h>
+
+#define SIZE 20
+int main(void) {
+
+    char f_name;
+    char lastname[SIZE]={0};
+
+    printf("Enter a first and last name: ");
+
+   scanf(" %c",&f_name);
+   while(!isspace(getchar()));
+   unsigned char i=0;
+   while(isalpha(lastname[i]=getchar()) && i++<SIZE);
+
+   !isalpha(lastname[i])?lastname[i]='\0':lastname[i];
+
+   printf("You entered the name: %s, %c.\n",lastname,f_name);
+
+   return 0;
+}
