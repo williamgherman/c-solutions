@@ -81,3 +81,33 @@ int main(void) {
     
     return 0;
 }
+
+###Solution 3
+#include <stdio.h>
+#include <ctype.h>
+
+#define SIZE 100
+#define SIZE_OF(x) (unsigned short)(sizeof(x)/sizeof(x[0]))
+int main(void) {
+
+
+   char my_array[SIZE]={0};
+   short i=0;
+   printf("Enter a sentence: ");
+   while((my_array[i]=getchar())!='.' &&\
+   my_array[i]!='?' && my_array[i]!='!')i++;
+
+   printf("Reversal of a sentence:");
+   char term=my_array[i--];
+   char tmp;
+   for(short b=i;i>=0;i--){
+        if(my_array[i]==' ' || !i){
+        tmp=i;
+           if(!i) while(my_array[i]!=' ') putchar(my_array[i++]);
+           else while(i<=b) putchar(my_array[i++]);
+        i=b=tmp;
+        }
+   }
+   printf("%c\n",term);
+   return 0;
+}
