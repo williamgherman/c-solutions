@@ -29,3 +29,38 @@ putchar('\n');
   return 0;
 }
 
+//solution #2
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+
+#define SIZE 80
+
+int main(void) {
+
+ char array[SIZE]={0};
+
+ unsigned char shift_amount;
+ 
+ printf("Enter a mesage: ");
+
+ unsigned char i=0;
+
+ while((array[i++]=getchar())!='\n');
+
+ printf("Enter shift amount 1-25: ");
+
+ scanf(" %hhu",&shift_amount);
+
+ i=0;
+ 
+ while(i<strlen(array)){
+ putchar(array[i]>='A' && array[i]<='Z'?\
+ ((array[i]-'A')+shift_amount)%26+'A':\
+ array[i]>='a' && array[i]<='z'?\
+ ((array[i]-'a')+shift_amount)%26+'a':array[i]);
+ i++;
+ }
+ putchar('\n');
+  return 0;
+}
