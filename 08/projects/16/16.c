@@ -38,3 +38,34 @@ printf("anagrams.");
   return 0;
 }
 
+//Solution 2
+#include <stdio.h>
+#include <ctype.h>
+
+#define SIZE 26
+
+int main(void) {
+
+unsigned char first_word[SIZE]={0};
+
+unsigned char i=0;
+
+printf("Enter first word: ");
+
+while((i=toupper(getchar()))!='\n') first_word[i-'A']++;
+
+printf("Enter second word: ");
+
+while((i=toupper(getchar()))!='\n') first_word[i-'A']--;
+
+printf("The words are ");
+for(i=0;i<SIZE;i++){
+if(first_word[i]) {
+puts("not anagrams");
+return 0;
+}
+}
+puts("anagrams");
+  return 0;
+}
+
