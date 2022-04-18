@@ -63,7 +63,7 @@ while((i=toupper(getchar()))!='\n') counts[i-'A']++;
 }
 
 bool equal_array(int counts1[26], int counts2[26]){
-return memcmp(counts1,counts2,SIZE);
+return !memcmp(counts1,counts2,SIZE);
 }
 
 int main(void) {
@@ -78,7 +78,7 @@ printf("Enter second word: ");
 read_word(second_word);
 
 printf("The words are ");
-puts(!equal_array(first_word,second_word)?"Anagrams":"Not anagrams");
+puts(equal_array(first_word,second_word)?"Anagrams":"Not anagrams");
 
   return 0;
 }
