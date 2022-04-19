@@ -11,8 +11,16 @@ distinguished.
 ```
 
 ### Solution
-(a), (b) and (d) are equivalent, because the `scanf` function matches zero or
+(a)and (d) are equivalent, because the `scanf` function matches zero or
 more whitespace characters on each whitespace character, except the final
-character, as shown in (c). (c) is not equivalent because the trailing space
+character, as shown in (c). 
+
+(b) is not equivalent. because the `scanf` function ignores whitespace when looking for the start of a number, but not when looking for the literal '-', as follows.
+```
+"%d- %d- %d" and "%d-%d-%d" are 	equivalent
+"%d -%d -%d" and "%d-%d-%d" are not equivalent
+```
+
+(c) is not equivalent because the trailing space
 will require the user to input a non-whitespace character at the end of the
 input signifying the end of the whitespace sequence matched by the space.
