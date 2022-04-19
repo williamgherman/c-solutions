@@ -29,3 +29,8 @@ long polynomial(int x){
 
 
 }
+
+#solution 2
+long polynomial(int x){
+return 3*(x*x*x*x*x)+2*(x*x*x*x)-5*(x*x*x)-x*x+7*x-6;
+}
