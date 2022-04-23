@@ -26,6 +26,31 @@ for(unsigned char i=strlen(array);i--;) putchar(array[i]);
 
 //////
 
+//Solution a another method with 1 var
+
+#include <stdio.h>
+#include <string.h>
+#define SIZE 100
+int main(void) {
+
+char array[SIZE]={0};
+
+short i=0;
+
+printf("Enter a message: ");
+
+while((array[i++]=getchar())!='\n' && i<SIZE);
+
+printf("The reversal is: ");
+
+for(--i;i>=0;putchar(array[i--]));
+
+putchar('\n');
+
+return 0;
+}
+
+
 
 //Solution b)
 
@@ -54,3 +79,25 @@ for(--p;p>&array[0];) putchar(*p--);
 
 }
 
+//improved solution for b
+#include <stdio.h>
+#include <string.h>
+#define SIZE 100
+int main(void) {
+
+char array[SIZE]={0};
+
+char *p=array;
+
+printf("Enter a message: ");
+
+while((*p=getchar())!='\n' && p++<array+SIZE) ;
+
+printf("The reversal is: ");
+
+for(--p;p>=array;putchar(*p--));
+
+putchar('\n');
+
+return 0;
+}
