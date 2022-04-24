@@ -1,3 +1,41 @@
+//Solution a)
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+
+#define SIZE 100
+int main(void) {
+
+char array[SIZE]={0};
+
+unsigned char i=0;
+
+char ch;
+
+while((ch=toupper(getchar()))!='\n' && i<SIZE)
+        if(!ispunct(ch)) array[i++]=ch;
+
+array[i]='\0';
+
+printf("array is ");
+
+unsigned char b=0;
+
+while(b<strlen(array)/2 && array[b++]!=array[i--]);
+
+if(b!=i){
+puts("not polidrom");
+exit(EXIT_FAILURE);
+}
+
+puts("Polidrom");
+return 0;
+}
+
+
+
+
 #include <stdio.h>
 #include <ctype.h> /* isalpha, toupper */
 ### Solution1
