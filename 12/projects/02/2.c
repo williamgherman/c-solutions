@@ -22,7 +22,7 @@ printf("array is ");
 
 unsigned char b=0;
 
-while(b<strlen(array)/2 && array[b++]!=array[i--]);
+while(b<strlen(array)>>1 && array[b++]!=array[i--]);
 
 if(b!=i){
 puts("not polidrom");
