@@ -31,5 +31,31 @@ printf("largest word=%s\n",largest_word);
 }
 
 
-//
+//another solution
+#include <stdio.h>
+#include <string.h>
+
+#define N 20
+
+int main(void)
+{
+
+char smallest_word[N+1];
+memset(smallest_word,'z',sizeof(smallest_word));
+char largest_word[N+1]={0};
+
+while(1){
+char word[N+1]={0};
+printf("Enter a word: ");
+scanf("%20s",word); //no need to use strncmp and strncpy safecheck done in scanf
+if(strcmp(word,smallest_word)<0) strcpy(smallest_word,word);
+if(strcmp(word,largest_word)>0) strcpy(largest_word,word);
+if(strlen(word)==4) break;
+}
+
+printf("\nSmallest word: %s\nLargest word: %s",\
+smallest_word,largest_word);
+  return 0;
+}
+
 
