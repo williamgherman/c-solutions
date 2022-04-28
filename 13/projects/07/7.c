@@ -43,12 +43,8 @@ while(1){
     printf("Enter a two-digit number: ");
 
     scanf("%d", &n);
-if(n<10 || n>99) {
-        puts("out of range\n");
-continue;
-}
 
-printf(n<=20?"%s\n":"%s %s\n",n<=20?pointers[n-1]:pointers[n/10+18-1],pointers[n%10-1]);
+    n>=10 && n<=99?printf(n<=20?"%s\n":"%s %s\n",n<=20?pointers[n-1]:pointers[n/10+18-1],pointers[n%10-1]):puts("Out of range");
 
 }
     return 0;
