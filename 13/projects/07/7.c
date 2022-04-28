@@ -44,7 +44,7 @@ while(1){
 
     scanf("%d", &n);
 if(n<10 || n>99) {
-        printf("out of range\n");
+        puts("out of range\n");
 continue;
 }
 
