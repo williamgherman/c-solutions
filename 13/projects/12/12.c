@@ -74,4 +74,40 @@ int main(void) {
     
     return 0;
 }
+//solution 3
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+
+#define ROWS 30
+#define COLS 20
+
+void read_reverse_word(char my_array[][COLS]){
+short rows=0;
+short cols=0;
+char endmark;
+while((my_array[rows][cols]=getchar())!='\n' && cols+1<COLS && rows+1<ROWS){
+   if(isspace(my_array[rows][cols]) || ispunct(my_array[rows][cols])){
+        if(ispunct(my_array[rows][cols])) endmark=my_array[rows][cols];
+   cols=my_array[rows++][cols]='\0';
+   
+   }
+   else cols++;
+   }
+
+while(rows>=0) printf("%s ",(my_array[rows--]));
+
+putchar(endmark);
+
+}
+int main(void) {
+
+   char my_array[ROWS][COLS]={0};
+   
+   
+   printf("Enter a sentence: ");
+   read_reverse_word(my_array);
+
+   return 0;
+}
 
