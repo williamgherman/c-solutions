@@ -53,3 +53,45 @@ void encrypt(char *message,int shift){
         else if (*message>='a' && *message<='z') *message=(((*message - 'a') + shift) % 26 + 'a');
     }
 }
+
+//solution3
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+
+#define SIZE 80
+
+void encrypt(char *message, int shift);
+
+void encrypt(char *message, int shift){
+
+ while(*message){
+ *message=*message>='A' && *message<='Z'?\
+ ((*message-'A')+shift)%26+'A':\
+ *message>='a' && *message<='z'?\
+ ((*message-'a')+shift)%26+'a':*message;
+message++;}
+}
+
+int main(void) {
+
+ char array[SIZE]={0};
+
+ unsigned char shift_amount;
+ 
+ printf("Enter a mesage: ");
+
+ unsigned char i=0;
+
+ while((array[i++]=getchar())!='\n');
+
+ printf("Enter shift amount 1-25: ");
+
+ scanf(" %hhu",&shift_amount);
+
+  encrypt(array,shift_amount);
+
+  puts(array);
+  
+  return 0;
+}
