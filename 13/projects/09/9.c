@@ -52,3 +52,34 @@ int main(void) {
     printf("Your sentence contains %d vowels.\n", compute_vowel_count(my_array));
     return 0;
 }
+
+//solution 3
+#include <stdio.h>
+#include <ctype.h>
+int compute_vowel_count(const char *sentence);
+
+int compute_vowel_count(const char *sentence){
+
+int vowels=0;
+
+while(*sentence++)
+vowels+=(toupper(*sentence)=='A' || \
+toupper(*sentence)=='E' || toupper(*sentence)=='I' || \
+toupper(*sentence)=='O' || toupper(*sentence)=='U')?1:0;
+
+return vowels;
+}
+
+int main(void) {
+    char word[100]={0};
+ 
+    unsigned char c=0;
+
+    printf("Enter a sentence: ");
+
+    while ((word[c++] = getchar()) != '\n');
+
+    printf("Your sentence contains %d vowels.\n", compute_vowel_count(word));
+    return 0;
+}
+
