@@ -57,12 +57,13 @@ bool are_anagrams(const char *word1, const char *word2);
 bool are_anagrams(const char *word1, const char *word2){
 
 if(strlen(word1)!=strlen(word2)) return false;
+
 short sum=0;
 
 while(isalpha(*word1))sum+=*word1++;
-printf("sum=%hd",sum);
+
 while(isalpha(*word2))sum-=*word2++;
-printf("sum=%hd",sum);
+
 
 return !sum?true:false;
 
@@ -81,14 +82,13 @@ printf("Enter first word: ");
 
 while((first_word[i++]=getchar())!='\n');
 
-printf("u enterered %s",first_word);
-
 printf("Enter second word: ");
+
 i=0;
 
 while((second_word[i++]=getchar())!='\n');
 
-printf("words are");
+printf("words are ");
 are_anagrams(first_word,second_word)?puts("anagrams"):puts("not anagrams");
 
 return 0;
