@@ -40,3 +40,11 @@ void reverse_message(char *message){
     char *q = &message[strlen(message)-1];
     for (char *p = message,tmp; p<=q;tmp=*q,*q--=*p,*p++=tmp);
 }
+//solution3
+void reverse(char *message){
+
+char *q=&message[strlen(message)-1];
+
+for(char *p=message;p<q;*p^=*q,*q=*p^*q,*p++^=*q--);
+
+}
