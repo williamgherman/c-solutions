@@ -28,11 +28,11 @@ void destroy(Stack s)
     free(s);
 }
 
-void make_empty(Stack s)
+/*void make_empty(Stack s)
 {
     while (!is_empty(s))
         pop(s);
-}
+}*/
 
 bool is_empty(const Stack s)
 {
