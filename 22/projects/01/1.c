@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
   }
 
 while(argc-->1){
-  if ((fp = fopen(argv[argc], "r")) == NULL) {
+  if ((fp = fopen(argv[argc-1], "r")) == NULL) {
     printf("%s can't be opened\n", argv[argc]);
     exit(EXIT_FAILURE);
   }
