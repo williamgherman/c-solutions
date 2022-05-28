@@ -32,4 +32,32 @@ int line_length(const char *filename, int n)
         len++;
     return len;
 }
+
+another solution
+
+int line_length(const char *filename, int n){
+
+FILE *fp;
+int length=0;
+char c;
+
+if((fp=fopen(filename,"r"))){
+--n;
+while((c=getc(fp))!=EOF){
+if(c=='\n') n--;
+if(!n && c!='\n') length++;
+}
+fclose(fp);
+}
+
+else fprintf(stderr,"cant open file error:%d\n",errno);
+return length;
+}
+
+int main(void) {
+
+printf("line length = %d\n",line_length("filname.txt",1));
+    return 0;
+}
+
 ```
