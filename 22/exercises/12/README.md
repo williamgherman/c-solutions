@@ -36,11 +36,13 @@ int count_periods(const char *filename)
         while ((c = fgetc(fp)) != EOF)
             if (c == '.')
                 n++;
-        fclose(fp);
+        //fclose(fp);
     }
+    fclose(fp);
     return n;
 }
 ```
 
 NB: This function also does not check for any errors in the output or input
 files, which could also potentially lead to problems.
+Update: its a good practice to be sure stream will be closed regardless of the state. fclose should be moved outside of if block.
