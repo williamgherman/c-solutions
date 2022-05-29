@@ -30,3 +30,29 @@ unsigned char file_counter=1;
   }
  return 0;
 }
+
+#Another solution
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[])
+{
+  FILE *fp;
+  if (argc < 2) {
+    printf("usage: canopen filename\n");
+    exit(EXIT_FAILURE);
+  }
+
+for(unsigned char i=1;i<argc;i++){
+if((fp=fopen(argv[i],"r"))!=NULL){
+char c;
+while((c=getc(fp))!=EOF) putchar(c);
+fclose(fp);
+}
+else {
+fprintf(stderr,"Cant open file %s",argv[i]);
+exit(EXIT_FAILURE);
+        }
+}
+ return 0;
+}
