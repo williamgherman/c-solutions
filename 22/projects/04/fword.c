@@ -39,3 +39,23 @@ bool word=false;
 
  return 0;
 }
+#another solution
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[])
+{
+  FILE *fp;
+  if (argc < 2) {
+    printf("usage: canopen filename\n");
+    exit(EXIT_FAILURE);
+  }
+char str[100];
+unsigned char word=0;
+if((fp=fopen(argv[argc-1],"r"))!=NULL){
+while(fscanf(fp,"%s",str)!=EOF) word++;
+fclose(fp);
+}
+else fprintf(stderr,"cant open %s",argv[argc-1]);
+ return 0;
+}
