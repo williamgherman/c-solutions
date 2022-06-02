@@ -13,9 +13,8 @@ int main(void)
     fgets(s, MAX_LEN, stdin);
     s[strlen(s)-1] = '\0';
 
-    if ((p[i] = strtok(s, " ")) == NULL)
+    if ((p[i++] = strtok(s, " ")) == NULL)
         return 0;
-    i++;
     while ((p[i] = strtok(NULL, " ")) != NULL)
         i++;
     for (i--; i >=0; i--)
