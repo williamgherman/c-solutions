@@ -9,7 +9,7 @@ the week.
 #### (a)
 
 ```c
-enum weekdays = {MONDAY, TUESDAY, WEDNESDAY, THURSDAY, 
+enum weekdays {MONDAY, TUESDAY, WEDNESDAY, THURSDAY, 
                  FRIDAY, SATURDAY, SUNDAY};
 ```
 

@@ -1,41 +1,50 @@
 #include <stdio.h>
 
-#define MAX_LEN 100
+#include <stdlib.h>
+
+#include <ctype.h>
+
+#include <strings.h>
+
+#define array_size 100
 
 void reverse(char *message);
 
 int main(void) {
-    
-    char message[MAX_LEN];
-    char c, *p = message;
 
-    printf("Enter a message: ");
+printf("enter a message: ");
 
-    while ((c = getchar()) != '\n' && p < message + MAX_LEN)
-        *p++ = c;
-    *p = '\0';
+char array[array_size];
+char i=0;
 
-    reverse(message);
-    printf("Reversal is: ");
-
-    printf("%s\n", message);
+while(((array[i]=getchar())!='\n') && i++<array_size);
+array[i]='\0';
+reverse(array);
+printf("Reversal is:  %s",array);
 
     return 0;
-}    
+}
 
-void reverse(char *message) {
-
-    char *p = message, *q = message, temp;
-
-    while (*q)
-        q++;
-    q--;
-
-    while (p < q) {
-        temp = *p;
-        *p = *q;
-        *q = temp;
-        p++;
-        q--;
+void reverse(char *message){
+char *q=&message[strlen(message)-1];
+char *p=message;
+    while(p!=q){
+    char tmp=*q;
+    *q--=*p;
+    *p++=tmp;
     }
+}
+
+//Solution2
+void reverse_message(char *message){
+    char *q = &message[strlen(message)-1];
+    for (char *p = message,tmp; p<=q;tmp=*q,*q--=*p,*p++=tmp);
+}
+//solution3
+void reverse(char *message){
+
+char *q=&message[strlen(message)-1];
+
+for(char *p=message;p<q;*p^=*q,*q=*p^*q,*p++^=*q--);
+
 }

@@ -29,3 +29,17 @@ void find_two_largest(int a[], int n, int *largest, int *second_largest) {
     }
 }
 ```
+
+### Solution2
+```c
+void fint_two_largest(int a[],int n,int *largest, int *second_largest){
+    *largest = *second_largest = a[0];
+    while (n--) {
+        if (*largest < a[n]) {
+            *second_largest = *largest;
+            *largest = a[n];
+        }
+        else if(*second_largest < a[n]) *second_largest = a[n];
+}
+}
+```

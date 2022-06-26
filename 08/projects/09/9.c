@@ -1,79 +1,73 @@
 #include <stdio.h>
-#include <stdlib.h> /* srand(), rand() */
-#include <time.h> /* time() */
+#include <stdlib.h>
+#include <time.h>
+#include <stdbool.h>
+#include <string.h>
 
-int main(void) {
+#define ROWS 10
+#define COLS 10
+#define UP 0
+#define DOWN 1
+#define RIGHT 2
+#define LEFT 3
 
-    char letter = 'A', 
-         grid[10][10] = {0};
-    int i = 0,
-        j = 0,
-        up = 0,   /* directions are essentially bools, written as ints to */
-        down = 0, /* conform with C89 standard.                           */
-        left = 0,
-        right = 0,
-        move = 0;
+int main()
+{
+ char array[ROWS][COLS];
+ memset(array,'.',ROWS*COLS*sizeof(char));
 
-    srand((unsigned) time(NULL));
+srand((unsigned int)time(NULL));
 
-    grid[i][j] = letter++;
+unsigned char r=0;
+unsigned char c=0;
+char letter='A';
 
-    while (letter <= 'Z') {
-        up = down = left = right = move = 0;
+while(letter<='Z'){
 
-        if (j + 1 < 10 && grid[i][j + 1] == 0)
-            up = 1;
-        if (j - 1 >= 0 && grid[i][j - 1] == 0)
-            down = 1;
-        if (i + 1 < 10 && grid[i + 1][j] == 0)
-            right = 1;
-        if (i - 1 >= 0 && grid[i - 1][j] == 0)
-            left = 1;
+unsigned char move=rand()%4;
 
-        if (up + down + left + right == 0)
-            break;
+switch(move){
+case UP:
+    if(r+1<ROWS && array[r+1][c]=='.') array[++r][c]=letter++;
+    else if(r-1>=0 && array[r-1][c]=='.') array[--r][c]=letter++;
+    else if(c+1<COLS && array[r][c+1]=='.') array[r][++c]=letter++;
+    else if(c-1>=0 && array[r][c-1]=='.') array[r][--c]=letter++;
+    else letter='a';//'a' is greater than 'Z' so bool var not needed!
+break;
 
-        move = rand() % 4;
-        
+case DOWN:
+    if(r-1>=0 && array[r-1][c]=='.') array[--r][c]=letter++;
+    else if(r+1<ROWS && array[r+1][c]=='.') array[++r][c]=letter++;
+    else if(c+1<COLS && array[r][c+1]=='.') array[r][++c]=letter++;
+    else if(c-1>=0 && array[r][c-1]=='.') array[r][--c]=letter++;
+    else letter='a';
+break;
 
-        /* Intentional fallthrough if direction fails */
-        switch(move) {
-            case 0:
-                if (up) {
-                    grid[i][++j] = letter++;
-                    break;
-                }
-            case 1:
-                if (down) {
-                    grid[i][--j] = letter++;
-                    break;
-                }
-            case 2:
-                if (right) {
-                    grid[++i][j] = letter++;
-                    break;
-                }
-            case 3:
-                if (left) {
-                    grid[--i][j] = letter++;
-                    break;
-                }
-            default:
-                break;
-        }
-    }
+case RIGHT:
+    if(c+1<COLS && array[r][c+1]=='.') array[r][++c]=letter++;
+    else if(c-1>=0 && array[r][c-1]=='.') array[r][--c]=letter++;
+    else if(r+1<ROWS && array[r+1][c]=='.') array[++r][c]=letter++;
+    else if(r-1>=0 && array[r-1][c]=='.') array[--r][c]=letter++;
+    else letter='a';
+break;
 
-    for (i = 0; i < 10; i++) {
-        for (j = 0; j < 10; j++) {
-            if (grid[i][j] == 0) 
-                grid[i][j] = '.';
-            printf("%c ", grid[i][j]);
-        }
-        printf("\n");
-    }
-    
-    return 0;
+case LEFT:
+    if(c-1>=0 && array[r][c-1]=='.') array[r][--c]=letter++;
+    else if(c+1<COLS && array[r][c+1]=='.') array[r][++c]=letter++;
+    else if(r+1<ROWS && array[r+1][c]=='.') array[++r][c]=letter++;
+    else if(r-1>=0 && array[r-1][c]=='.') array[--r][c]=letter++;
+    else letter='a';
+
+break;
+
+default:
+    break;
+}
 }
 
-    
-    
+for(unsigned char i=0,b=0;i<ROWS;i++,b=0){
+    while(b<COLS) putchar(array[i][b++]);
+    putchar('\n');
+    }
+    return 0;
+}

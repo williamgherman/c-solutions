@@ -40,3 +40,28 @@ int main(int argc, char *argv[])
       exit(EXIT_FAILURE);
   exit(EXIT_SUCCESS);
 }
+
+#another solution
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[])
+{
+  FILE *fp;
+
+  if (argc < 2) {
+    printf("usage: canopen filename\n");
+    exit(EXIT_FAILURE);
+  }
+
+while(argc-->1){
+  if ((fp = fopen(argv[argc-1], "r")) == NULL) {
+    printf("%s can't be opened\n", argv[argc-1]);
+    exit(EXIT_FAILURE);
+  }
+
+  printf("%s can be opened\n", argv[argc-1]);
+  fclose(fp);
+  }
+  return 0;
+}

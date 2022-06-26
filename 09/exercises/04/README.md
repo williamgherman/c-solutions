@@ -6,24 +6,19 @@ year (an integer between 1 and 366) specified by the three arguments.
 
 ```c
 int day_of_year(int month, int day, int year) {
+if(day<=0 || day>31 || month<=0 || month>12 || !year || (month==2 && day>29) \
+   || (!(year%400) || !(year%4) && year%100) && day>29) return 0;
 
-    int i;
+unsigned int sum=0;
 
-    for (i = 1; i < month; i++) {
-        switch(i) {
-            case 1: case 3: case 5: case 7: case 8: case 10: case 12:
-                day += 31;
-                break;
-            case 4: case 6: case 9: case 11:
-                day += 30;
-                break;
-            case 2:
-                if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0)
-                    day += 29;
-                else
-                    day += 28;
-        }
+for(unsigned char i=1;i<month;i++){
+    if(i==1 || i==3 || i==5 || i==7 || i==8 || i==10 || i==12) sum+=31;
+    else if(i==2){
+        if(!(year%400) || (!(year%4)) && (year%100)) sum+=29;
+        else sum+=28;
     }
-    return day;
+    else sum+=30;
+}
+    return sum+day;
 }
 ```

@@ -24,3 +24,10 @@ void store_zeros(int a[], int n) {
         *p = 0;
 }
 ```
+#Solution 2
+```c
+void store_zeros(int a[], int n) {
+
+    for (int *p = a; p < a + n; *p++ = 0);
+}
+```

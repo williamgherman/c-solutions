@@ -8,7 +8,7 @@ typedef int Item;
 
 Stack create();
 void destroy(Stack s);
-void make_empty(Stack s);
+//void make_empty(Stack s);
 bool is_empty(const Stack s);
 bool is_full(const Stack s);
 void push(Stack s, Item i);

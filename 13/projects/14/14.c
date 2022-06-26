@@ -1,62 +1,95 @@
+#include <stdbool.h>   /* C99 only */
+
 #include <stdio.h>
-#include <ctype.h> /* toupper, isalpha */
-#include <stdbool.h> /* C99+ only */
+
+#include <ctype.h>
+#include <string.h>
+#define size 26
+bool are_anagrams(const char *word1, const char *word2);
+int main(void)
+
+{
+    printf("Enter first words: ");
+
+    char array[size];
+    char array2[size];
+    char ch=0;
+
+while((array[ch++]=tolower(getchar()))!='\n' && ch<size);
+array[--ch]='\0';
+
+printf("Enter second words: ");
+ch=0;
+while((array2[ch++]=tolower(getchar()))!='\n' && ch<size);
+array2[--ch]='\0';
+
+if(are_anagrams(array,array2)) printf("are anagrams");
+else printf("are not anagrams");
+
+  return 0;
+
+}
+
+bool are_anagrams(const char *word1, const char *word2){
+char table[26];
+memset(table,0,sizeof(table));
+
+for(char ch='a';ch<='z';ch++){
+
+    for(char *p=word1,*q=word2;p<=word1+strlen(word1) && q<=word2+strlen(word2);p++,q++){
+        if(*p==ch) table[ch-'a']++;
+        if(*q==ch) table[ch-'a']--;
+    }
+}
+
+for(unsigned char ch=0;ch<sizeof(table)/sizeof(table[0]);ch++) if(table[ch]) return false;
+return true;
+
+}
+//solution 2
+#include <stdio.h>
+#include <ctype.h>
+#include <stdbool.h>
+#include <string.h>
 
 bool are_anagrams(const char *word1, const char *word2);
 
-int main(void) {
+bool are_anagrams(const char *word1, const char *word2){
 
-    char c, word1[80], word2[80], *p;
+if(strlen(word1)!=strlen(word2)) return false;
 
-    p = word1;
+short sum=0;
 
-    printf("Enter first word: ");
-    while ((c = getchar()) != '\n' && p < word1 + 80) {
-        if (isalpha(c)) {
-            *p = toupper(c);
-            p++;
-        }
-    }
-    p = '\0';
+while(isalpha(*word1))sum+=*word1++;
 
-    p = word2;
+while(isalpha(*word2))sum-=*word2++;
 
-    printf("Enter second word: ");
-    while ((c = getchar()) != '\n' && p < word2 + 80) {
-        if (isalpha(c)) {
-            *p = toupper(c);
-            p++;
-        }
-    }
-    p = '\0';
 
-    if (are_anagrams(word1, word2)) {
-        printf("The words are anagrams.\n");
-        return 0;
-    }
-    printf("The words are not anagrams.\n");
-    return 0;
+return !sum?true:false;
+
 }
 
-bool are_anagrams(const char *word1, const char *word2) {
+#define SIZE 26
 
-    int letters[26] = {0};
-    int *p = letters;
+int main(void) {
 
-    while (*word1) {
-        letters[*word1 - 'A']++;
-        word1++;
-    }
+char first_word[SIZE]={0};
+char second_word[SIZE]={0};
 
-    while (*word2) {
-        letters[*word2 - 'A']--;
-        word2++;
-    }
+unsigned char i=0;
 
-    while (*p) {
-        if (*p != 0)
-            return false;
-        p++;
-    }
-    return true;
+printf("Enter first word: ");
+
+while((first_word[i++]=getchar())!='\n');
+
+printf("Enter second word: ");
+
+i=0;
+
+while((second_word[i++]=getchar())!='\n');
+
+printf("words are ");
+are_anagrams(first_word,second_word)?puts("anagrams"):puts("not anagrams");
+
+return 0;
 }

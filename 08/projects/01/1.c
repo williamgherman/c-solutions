@@ -30,3 +30,18 @@ int main(void) {
     printf("\n");
     return 0;
 }
+
+//how about this?
+bool digit_seen[10] = {false};
+  int digit;
+  long n;
+
+  printf("Enter a number: ");
+  scanf("%ld", &n);
+printf("repeated digits: ");
+  while (n > 0) {
+    digit = n % 10;
+    if (digit_seen[digit]) printf("%d ",digit);
+    digit_seen[digit] = true;
+    n /= 10;
+  }

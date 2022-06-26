@@ -29,3 +29,23 @@ int main(int argc, char *argv[])
     printf("Lines in %s: %llu\n", argv[1], count);
     exit(EXIT_SUCCESS);
 }
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[])
+{
+  FILE *fp;
+  if (argc < 2) {
+    printf("usage: canopen filename\n");
+    exit(EXIT_FAILURE);
+  }
+char str[100];
+unsigned char line=0;
+if((fp=fopen(argv[argc-1],"r"))!=NULL){
+while(fgets(str,sizeof(str),fp)!=NULL) line++;
+fclose(fp);
+printf("lines=%d\n",line);
+}
+else fprintf(stderr,"cant open %s",argv[argc-1]);
+ return 0;
+}

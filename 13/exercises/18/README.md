@@ -27,3 +27,11 @@ void remove_filename(char *url) {
     *p = '\0';
 }
 ```
+### Solution 2
+```c
+void remove_filename(char *url){
+    while (*url++);
+    for (--url; *url!='/'; url--);
+    *url = '\0';
+}
+```

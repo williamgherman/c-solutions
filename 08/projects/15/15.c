@@ -1,33 +1,66 @@
+#include <stdbool.h>   /* C99 only */
 #include <stdio.h>
 
-#define MAX_VALUE 80
+
+#define size 80
+
+int main(void)
+
+{
+    printf("Enter a sentence: ");
+    char array[size];
+    
+    for(unsigned char i=0;i<size;i++) array[i]=0;
+
+    char i=0;
+    int shift=0;
+    while((array[i]=getchar())!='\n') i++;
+
+    printf("Enter shift amount (1-25): ");
+    scanf("%d",&shift);
+
+printf("Encrypted message:");
+for(unsigned char counter=0;counter<=i;counter++){
+    if(array[counter]>='A' && array[counter]<='Z') putchar(((array[counter] - 'A') + shift) % 26 + 'A');
+    else if (array[counter]>='a' && array[counter]<='z') putchar(((array[counter] - 'a') + shift) % 26 + 'a');
+    else putchar(array[counter]);
+}
+putchar('\n');
+  return 0;
+}
+
+//solution #2
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+
+#define SIZE 80
 
 int main(void) {
 
-    char c, sentence[MAX_VALUE] = {0};
+ char array[SIZE]={0};
 
-    int i, n, length;
+ unsigned char shift_amount;
+ 
+ printf("Enter a mesage: ");
 
-    printf("Enter message to be encrypted: ");
-    for (i = 0, length = 0; (c = getchar()) != '\n' && i < MAX_VALUE; i++) {
-        length++;
-        sentence[i] = c;
-    }
+ unsigned char i=0;
 
-    printf("Enter shift amount (1-25): ");
-    scanf("%d", &n);
+ while((array[i++]=getchar())!='\n');
 
-    printf("Encrypted message: ");
-    for (i = 0; i < length; i++) {
-        if (sentence[i] >= 'A' && sentence[i] <= 'Z')
-            sentence[i] = ((sentence[i] - 'A') + n) % 26 + 'A';
-        else if (sentence[i] >= 'a' && sentence[i] <= 'z')
-            sentence[i] = ((sentence[i] - 'a') + n) % 26 + 'a';
-        
-        putchar(sentence[i]);
-    }
-    printf("\n");
+ printf("Enter shift amount 1-25: ");
 
-    return 0;
+ scanf(" %hhu",&shift_amount);
+
+ i=0;
+ 
+ while(i<strlen(array)){
+ putchar(array[i]>='A' && array[i]<='Z'?\
+ ((array[i]-'A')+shift_amount)%26+'A':\
+ array[i]>='a' && array[i]<='z'?\
+ ((array[i]-'a')+shift_amount)%26+'a':array[i]);
+ i++;
+ }
+ putchar('\n');
+  return 0;
 }
-

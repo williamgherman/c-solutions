@@ -29,3 +29,10 @@ for (i = 0; i < 8; i++) {
     }
 }
 ```
+
+### Solution2
+```c
+char checker_board [8][8];
+    for (unsigned char i =0; i<8; i++)
+        for (unsigned char j = 0; j<8; checker_board[i][j] = !((i+j++)%2)? 'B': 'R');
+```

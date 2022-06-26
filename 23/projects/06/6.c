@@ -5,13 +5,7 @@ int main(void)
 {
     char c;
 
-    while ((c = getchar()) != EOF)
-    {
-        if (strchr("\a\b\f\r\t\v", c) != NULL)
-            putchar('?');
-        else
-            putchar(c);
-    }
+    while ((c = getchar()) != EOF) putchar(strchr("\a\b\f\r\t\v", c) ?'?':c);
 
     return 0;
 }

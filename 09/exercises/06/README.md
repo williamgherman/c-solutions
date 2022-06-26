@@ -7,12 +7,13 @@ the number of digits in `n`, have the function return 0.
 ### Solution
 
 ```c
-int digit(int n, int k) {
-
-    while (k-- > 1) {
-        if (n /= 10 <= 0)
-            return 0;
+int digit(int n,int k){
+    if(!n || !k) return 0;
+    int b = 0;
+    while (k--) {
+        b=n%10;
+        if(!(n/10)) return 0;
+        else n/=10;
     }
-    return n % 10;
+    return b;
 }
-```

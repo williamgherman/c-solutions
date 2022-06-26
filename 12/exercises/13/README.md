@@ -27,3 +27,29 @@ void init_ident(int n, double ident[n][n]) {
     }
 }
 ```
+
+### Solution 2 (problem didnt ask to do it with function it asks to do without function as in original one)
+```c
+int main(void) {
+    
+    int ident[N][N];
+    
+    ident[0][0] = 1;
+    
+    for (int *p = &ident[0][1],counter = 1; p < ident+N;counter++) {
+        if (counter == N+1) {
+            *p++ = 1;
+            counter = 0;
+        }
+        else *p++ = 0;
+    }
+    
+    for (int i =0 ; i< N; i++) {
+        for (int b  = 0; b< N; b++) {
+            printf("%d",ident[i][b]);
+        }
+        putchar('\n');
+    }
+    return 0;
+}
+```

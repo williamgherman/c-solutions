@@ -18,3 +18,9 @@ struct pinball_machine {
     int players;
 };
 ```
+struct pinball_machine {
+    char name[40];
+    unsigned int year;
+    enum { EM, SS } type;
+    unsigned int players;
+};

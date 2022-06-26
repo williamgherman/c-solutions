@@ -38,6 +38,7 @@ int count_periods(const char *filename)
                 n++;
         fclose(fp);
     }
+    fclose(fp);
     return n;
 }
 ```

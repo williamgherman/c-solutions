@@ -31,3 +31,15 @@ void get_extension(const char *file_name, char *extension) {
 NB: Some problems would arise by using this function: for instance, a filename
 with the value `"memo.txt.html"` would incorrectly copy `"txt.html"` to
 `extension`.
+
+### Solution 2
+```c
+void get_extension(const char *file_name, char *extension){
+    
+    while (*file_name++)
+        if (*file_name == '.') {
+            strcpy(extension, strlen(++file_name)==3?file_name:"");
+            break;
+        }
+}
+```

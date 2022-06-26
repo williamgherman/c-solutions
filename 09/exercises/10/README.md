@@ -10,44 +10,76 @@ array.)
 ### Solution
 
 #### (a).
-
 ```c
-int max_in_array (int a[], int n) {
+#include <stdbool.h>   /* C99 only */
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
 
-    int i = 1, max = a[0];
-    while (i++ < n) {
-        if (n[i] > max)
-            max = n[i];
-    }
-    return max;
+int largest_element(int a[],unsigned long _size);
+double average_element(int a[],unsigned long _size);
+unsigned long positive_integers(int a[],unsigned long _size);
+
+int main(void)
+
+{
+    int a[]={5,1,5,14,4,-5,6,11,-23,56,3};
+    unsigned long b=sizeof(a)/sizeof(a[0]);
+
+    printf("largest element is: %d\n",largest_element(a,b));
+    printf("the average of all elements is: %.2f\n",average_element(a,b));
+printf("the number of positive elements in array %lu",positive_integers(a,b));
+
+  return 0;
 }
-```
 
-#### (b).
-
-```c
-int average (int a[], int n) {
-
-    int i = 0, average = 0;
-
-    while (i++ < n)
-        average += a[i];
-    average /= n;
-    return average;
+###Solution1
+int largest_element(int a[],unsigned long _size){
+    int largest=0;
+for(unsigned char i=0;i<_size;i++) if(largest<a[i]) largest=a[i];
+return largest;
 }
-```
+###Solution2
+int my_array(int a[],int n){
+    int tmp=0;
+    while (n--) if(a[n] > tmp) tmp = a[n];
+    return tmp;
+}
 
-#### (c).
+###Solution1
+double average_element(int a[],unsigned long _size){
+long sum=0;
 
-```c
-int positives (int a[], int n) {
+for(unsigned char i=0;i<_size;i++) sum+=a[i];
 
-    int total, i = 0;
 
-    while (i++ < n) {
-        if (a[n] > 0)
-            total++;
-    }
+return (double)sum/_size;
+}
 
-    return total;
+#Solution2
+float my_array(int a[],int n){
+    int sum = 0;
+    
+    float length = n;
+    
+    while (n--) sum+=a[n];
+    
+    return sum/length;
+}
+
+###Solution1
+unsigned long positive_integers(int a[],unsigned long _size){
+unsigned long counter=0;
+for(unsigned char i=0;i<_size;i++) if(a[i]>0) counter++;
+return counter;
+}
+
+#Solution2
+int my_array(int a[],int n){
+    int sum=0;
+    while (n--) if (a[n]>0) sum++;
+    return sum;
+}
+
+
 ```

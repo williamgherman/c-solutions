@@ -22,6 +22,14 @@ void capitalize(char str[]) {
 }
 ```
 
+#### Solution 1a
+```c
+///no need to check with isalpha. toupper will do the job.
+void capitalize(char a[]){
+    for (int i = 0; a[i]!='\0'; i++) a[i] = toupper(a[i]);
+}
+
+```
 #### (b)
 
 ```c
@@ -32,5 +40,13 @@ void capitalize(char *str) {
             toupper(c);
         c++;
     }
+}
+```
+### Solution 1b
+
+```c
+///original solution b cant work
+void capitalize(char a[]){
+    for (char *p = a; *p!='\0'; p++) toupper(p);
 }
 ```
