@@ -34,7 +34,7 @@ int main(void) {
             push(c);
     }
     
-    if (!is_empty) {
+    if (!is_empty()) {
         printf("Parentheses/braces are not nested properly\n");
         return 0;
     }
